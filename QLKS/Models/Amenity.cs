@@ -23,7 +23,7 @@ namespace QLKS.Models
         [Display(Name = "Mô tả")]
         public string Description { get; set; }
         [Display(Name = "Đơn vị")]
-        public string AmenityUnit { get; set; }
+        public string AmenityUnit { get; set; } 
 
         public virtual RoomType_Amenity RoomType_Amenity { get; set; }
     }
