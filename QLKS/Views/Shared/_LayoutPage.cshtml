@@ -1,0 +1,253 @@
+﻿@if (!Request.IsAuthenticated)
+{
+    Response.Redirect("~/Home/Login");
+}
+<!DOCTYPE html>
+
+@{
+    
+    
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <title>@ViewBag.Title</title>
+    <script src="../../Content/Theme/Default/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="../../Content/Theme/Default/scripts/datatable.js" type="text/javascript"></script>
+    <script src="../../Content/Theme/Default/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../Content/Theme/Default/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+    <script src="../../Content/Theme/Default/scripts/select2.min.js" type="text/javascript"></script>
+     
+    <link href="../../Content/Theme/Default/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/Theme/Default/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/Theme/Default/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="../../Content/Theme/Default/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/Theme/Default/css/layout.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/Theme/Default/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="../../Content/Theme/Default/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/Theme/Default/css/table.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/Theme/Default/css/custom.css" rel="stylesheet" type="text/css" />
+
+    <link rel="shortcut icon" href="../../Content/Theme/Default/img/favicon.ico" />
+</head>
+<body class="page-container-bg-solid">
+    <div class="page-wrappers">
+        <div class="page-wrapper-rows">
+            <div class="page-wrapper-tops">
+                <!-- BEGIN HEADER -->
+                <div class="page-header">
+                    <!-- BEGIN HEADER TOP -->
+                    <div class="page-header-top">
+                        <div class="container">
+                            <!-- BEGIN LOGO -->
+                            <div class="page-logo">
+                                <a href="/">
+                                    <img src="../../Content/Theme/Default/global/img/logo.jpg" alt="logo" class="logo-default">
+                                </a>
+                            </div>
+                            <!-- END LOGO -->
+                            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                            <a href="javascript:;" class="menu-toggler"></a>
+                            <!-- END RESPONSIVE MENU TOGGLER -->
+                            <!-- BEGIN TOP NAVIGATION MENU -->
+                            <div class="top-menu">
+                                <div class ="box_button">
+                                @Html.ActionLink("Đăng xuất", "Logout", "Home", htmlAttributes: new { @class = "btn"})
+                                    </div>
+                                <!--<ul class="nav navbar-nav pull-right">
+                                    <li class="dropdown dropdown-extended quick-sidebar-toggler">
+                                        <span class="sr-only">Toggle Quick Sidebar</span>
+                                        
+                                    </li>
+                                </ul>-->
+                            </div>
+                            <!-- END TOP NAVIGATION MENU -->
+                        </div>
+                    </div>
+                    <!-- END HEADER TOP -->
+                    <!-- BEGIN HEADER MENU -->
+                    <div class="page-header-menu">
+                        <div class="container">
+                            <!-- BEGIN HEADER SEARCH BOX 
+                            <form class="search-form" action="page_general_search.html" method="GET">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search" name="query">
+                                    <span class="input-group-btn">
+                                        <a href="javascript:;" class="btn submit">
+                                            <i class="icon-magnifier"></i>
+                                        </a>
+                                    </span>
+                                </div>
+                            </form>-->
+                            <!-- END HEADER SEARCH BOX -->
+                            <!-- BEGIN MEGA MENU -->
+                            <!-- DOC: Apply "hor-menu-light" class after the "hor-menu" class below to have a horizontal menu with white background -->
+                            <!-- DOC: Remove data-hover="dropdown" and data-close-others="true" attributes below to disable the dropdown opening on mouse hover -->
+                            <div class="hor-menu  ">
+                                <ul class="nav navbar-nav">
+                                    <li class="menu-dropdown classic-menu-dropdown active">
+                                        <a href="/">Trang chủ
+                                            <span class="arrow"></span>
+                                        </a>
+                                    </li>
+                                    <li class="menu-dropdown classic-menu-dropdown ">
+                                        <a href="javascript:;">Lễ tân
+                                               <span class="arrow"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" style="min-width: 300px">
+                                            <li><a href="/Checkin/ListCheckin">Danh sách nhận phòng</a></li>
+                                           <li><a href="/Revervation/Index">Danh sách đặt phòng</a></li>
+                                             @*<li><a href="/Checkin/Index">Nhận phòng</a></li>*@
+                                            <li><a href="/Checkin/ListCheckout">Danh sách Trả phòng</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-dropdown classic-menu-dropdown ">
+                                        <a href="javascript:;">Quản lý tài nguyên
+                                                <span class="arrow"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" style="min-width: 300px">
+                                            <li><a href="/Room/Index">Phòng</a></li>
+                                            <li><a href="/Amenity/Index">Thiết bị</a></li>
+                                            <li><a href="/RoomType/Index">Loại phòng</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-dropdown classic-menu-dropdown ">
+                                        <a href="javascript:;">Quản lý hệ thống 
+                                              <span class="arrow"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" style="min-width: 300px">
+                                            <li><a href="/CONFIGCOMP/Index">Thông tin khách sạn</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-dropdown classic-menu-dropdown ">
+                                        <a href="#">Báo cáo
+                                               <!-- <span class="arrow"></span>-->
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- END MEGA MENU -->
+                        </div>
+                    </div>
+                    <!-- END HEADER MENU -->
+                </div>
+                <!-- END HEADER -->
+            </div>
+        </div>
+        <div class="page-wrapper-row ">
+            <!-- BEGIN CONTAINER -->
+            <div class="page-container">
+                <!-- BEGIN CONTENT -->
+                <div class="page-content-wrapper">
+                    <div class="page-wrapper-middle">
+                        <div class="container">
+                            <div class="row">
+                                <div class="container">
+                                    <div class="message">
+                                        @ViewBag.Message
+                                    </div>
+                                </div>
+                                @RenderBody()
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <footer>
+        <img src="../../Content/Theme/Default/img/hotel.jpg" />
+    </footer>
+    <script type="text/javascript">
+        // Change the selector if needed
+        
+
+       
+
+        function tablescroll() {
+            var table = jQuery('table.scroll'),
+            bodyCells = table.find('tbody tr:first').children(),
+        colWidth;
+            colWidth = bodyCells.map(function () {
+                return jQuery(this).width();
+            }).get();
+
+            // Set the width of thead columns
+            table.find('thead tr').children().each(function (i, v) {
+                jQuery(v).width(colWidth[i]);
+            });
+        }
+
+        // Adjust the width of thead cells when window resizes
+        jQuery(window).resize(function () {
+            
+            tablescroll();
+        }).resize();
+
+        jQuery(document).ready(function () {
+            jQuery("input[type='text']").addClass("form-control form-control-inline input-medium");
+            jQuery("input[type='datetime']").addClass("form-control form-control-inline input-medium date-picker");
+            jQuery("form").addClass("form-horizontal form-bordered");
+            jQuery("select").addClass("bs-select form-control input-medium");
+            jQuery("textarea").addClass("form-control form-control-inline input-medium");
+            jQuery("input[type='date']").addClass("form-control input-medium date-picker");
+            jQuery("input[type='email']").addClass("form-control form-control-inline input-medium");
+            jQuery("input[type='number']").addClass("form-control form-control-inline input-medium");
+            jQuery("select[multiple='multiple']").addClass("multiple");
+
+            jQuery(".multiple").select2();
+            $('.date-picker').attr('type', 'text');
+            if (jQuery().datepicker) {
+                $('.date-picker').datepicker({ 
+                    orientation: "left",
+                    autoclose: true
+                });
+            }
+            $(document).scroll(function () {
+                $('.date-picker').datepicker();
+            });
+            var html = jQuery(".message").text();
+            if (html.trim().length <= 2) {
+                jQuery(".message").css("display", "none");
+            }
+            
+        });
+        
+        $(window).load(function () {
+            $('#dataTables').dataTable({
+                "oLanguage": {
+                    "sProcessing": "Vui lòng chờ...",
+                    "sSearch": "Tìm kiếm",
+                    //"sLengthMenu":"Hiện trên 1 trang", 
+                    "sInfo": "_START_ đến _END_ trong _TOTAL_ hàng",
+                    "sInfoEmpty": "0 đến 0 trong 0 hàng",
+                    "oPaginate": {
+                        "sFirst": "Đầu tiên",
+                        "sPrevious": "Trở về",
+                        "sNext": "Sau",
+                        "sLast": "Cuối cùng"
+                    }
+
+                },
+            });
+            $(window).resize();
+        });
+         
+        // (function () {
+        //   if ($.fn.dataTable) {
+        //     $(document).data('datatables', $.fn.dataTable);
+        //   $.fn.dataTable = function (options) {
+        //     $(document).data('datatables').bind(this, options)().parent().find('select').chosen().next().find('input').remove();
+        //   return $(this);
+        // }
+        // }
+        //})();
+
+    </script>
+    <div class="loading" style="display: none"></div>
+</body>
+</html>

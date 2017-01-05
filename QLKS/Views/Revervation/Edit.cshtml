@@ -1,0 +1,88 @@
+﻿@model QLKS.Models.Revervation
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Revervation</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReservationID, "RevervationRoomType")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ReservationID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ReservationID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CustomerID, "Customer")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CustomerID", String.Empty)
+            @Html.ValidationMessageFor(model => model.CustomerID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PeopleNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PeopleNumber)
+            @Html.ValidationMessageFor(model => model.PeopleNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateIn)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateIn)
+            @Html.ValidationMessageFor(model => model.DateIn)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateOut)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateOut)
+            @Html.ValidationMessageFor(model => model.DateOut)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Requests)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Requests)
+            @Html.ValidationMessageFor(model => model.Requests)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Status)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Status)
+            @Html.ValidationMessageFor(model => model.Status)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BookingDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BookingDate)
+            @Html.ValidationMessageFor(model => model.BookingDate)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

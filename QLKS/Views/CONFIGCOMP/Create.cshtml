@@ -1,0 +1,88 @@
+﻿@model QLKS.Models.CONFIGCOMP
+
+@{
+    Layout = "../Shared/_LayoutPage.cshtml";
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>CONFIGCOMP</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CompanyName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CompanyName)
+            @Html.ValidationMessageFor(model => model.CompanyName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CompanyAdd)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CompanyAdd)
+            @Html.ValidationMessageFor(model => model.CompanyAdd)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TaxCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TaxCode)
+            @Html.ValidationMessageFor(model => model.TaxCode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AccountNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AccountNo)
+            @Html.ValidationMessageFor(model => model.AccountNo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Phone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Phone)
+            @Html.ValidationMessageFor(model => model.Phone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fax)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Fax)
+            @Html.ValidationMessageFor(model => model.Fax)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FloorNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FloorNo)
+            @Html.ValidationMessageFor(model => model.FloorNo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PositionNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PositionNo)
+            @Html.ValidationMessageFor(model => model.PositionNo)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

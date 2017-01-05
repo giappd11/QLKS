@@ -1,0 +1,42 @@
+﻿@model QLKS.Models.RoomType
+
+
+@using (Html.BeginForm("Index", "RoomType"))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.RoomTypeID)
+    <div class="form-group">
+        <div class="control-label col-md-3">
+            @Html.LabelFor(model => model.RoomTypeName)
+        </div>
+        <div class="col-md-9">
+            @Html.EditorFor(model => model.RoomTypeName)
+            @Html.ValidationMessageFor(model => model.RoomTypeName)
+        </div>
+    </div>
+    <div class="form-group">
+
+        <div class="control-label col-md-3">
+            @Html.LabelFor(model => model.Price)
+        </div>
+        <div class="col-md-9">
+            @Html.EditorFor(model => model.Price)
+            @Html.ValidationMessageFor(model => model.Price)
+        </div>
+
+    </div>
+    <div class="form-group">
+        <div class="control-label col-md-3">
+            @Html.LabelFor(model => model.Depcriptions)
+        </div>
+        <div class="col-md-9">
+            @Html.EditorFor(model => model.Depcriptions)
+            @Html.ValidationMessageFor(model => model.Depcriptions)
+        </div>
+    </div>
+
+    <div class="box_button">
+        <button type="submit" value="Create">Thêm</button>
+    </div>
+}
+

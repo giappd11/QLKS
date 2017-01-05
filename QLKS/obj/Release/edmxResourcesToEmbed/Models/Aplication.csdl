@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLKSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Amenities" EntityType="QLKSModel.Amenity" />
+    <EntitySet Name="CheckIns" EntityType="QLKSModel.CheckIn" />
+    <EntitySet Name="checkin_Custommer" EntityType="QLKSModel.checkin_Custommer" />
+    <EntitySet Name="CONFIGCOMPs" EntityType="QLKSModel.CONFIGCOMP" />
+    <EntitySet Name="Customers" EntityType="QLKSModel.Customer" />
+    <EntitySet Name="Invoices" EntityType="QLKSModel.Invoice" />
+    <EntitySet Name="ListRooms" EntityType="QLKSModel.ListRoom" />
+    <EntitySet Name="Nationalities" EntityType="QLKSModel.Nationality" />
+    <EntitySet Name="RevervationRoomTypes" EntityType="QLKSModel.RevervationRoomType" />
+    <EntitySet Name="Revervations" EntityType="QLKSModel.Revervation" />
+    <EntitySet Name="Rooms" EntityType="QLKSModel.Room" />
+    <EntitySet Name="RoomTypes" EntityType="QLKSModel.RoomType" />
+    <EntitySet Name="RoomType_Amenity" EntityType="QLKSModel.RoomType_Amenity" />
+    <EntitySet Name="RoomType_ServiceFix" EntityType="QLKSModel.RoomType_ServiceFix" />
+    <EntitySet Name="ServiceFixes" EntityType="QLKSModel.ServiceFix" />
+    <EntitySet Name="Users" EntityType="QLKSModel.User" />
+    <AssociationSet Name="FK_Equipment_Amenity" Association="QLKSModel.FK_Equipment_Amenity">
+      <End Role="Amenity" EntitySet="Amenities" />
+      <End Role="RoomType_Amenity" EntitySet="RoomType_Amenity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_checkin_Custommer_CheckIn" Association="QLKSModel.FK_checkin_Custommer_CheckIn">
+      <End Role="CheckIn" EntitySet="CheckIns" />
+      <End Role="checkin_Custommer" EntitySet="checkin_Custommer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Invoice_CheckIn" Association="QLKSModel.FK_Invoice_CheckIn">
+      <End Role="CheckIn" EntitySet="CheckIns" />
+      <End Role="Invoice" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListRooms_CheckIn" Association="QLKSModel.FK_ListRooms_CheckIn">
+      <End Role="CheckIn" EntitySet="CheckIns" />
+      <End Role="ListRooms" EntitySet="ListRooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_checkin_Custommer_Custommer" Association="QLKSModel.FK_checkin_Custommer_Custommer">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="checkin_Custommer" EntitySet="checkin_Custommer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customers_Nationality" Association="QLKSModel.FK_Customers_Nationality">
+      <End Role="Nationality" EntitySet="Nationalities" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Revervations_Customers" Association="QLKSModel.FK_Revervations_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Revervations" EntitySet="Revervations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListRooms_Room" Association="QLKSModel.FK_ListRooms_Room">
+      <End Role="Room" EntitySet="Rooms" />
+      <End Role="ListRooms" EntitySet="ListRooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Revervation_Revervations" Association="QLKSModel.FK_Revervation_Revervations">
+      <End Role="Revervations" EntitySet="Revervations" />
+      <End Role="RevervationRoomType" EntitySet="RevervationRoomTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Revervation_RoomType" Association="QLKSModel.FK_Revervation_RoomType">
+      <End Role="RoomType" EntitySet="RoomTypes" />
+      <End Role="RevervationRoomType" EntitySet="RevervationRoomTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Room_RoomType" Association="QLKSModel.FK_Room_RoomType">
+      <End Role="RoomType" EntitySet="RoomTypes" />
+      <End Role="Room" EntitySet="Rooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Equipment_RoomType" Association="QLKSModel.FK_Equipment_RoomType">
+      <End Role="RoomType" EntitySet="RoomTypes" />
+      <End Role="RoomType_Amenity" EntitySet="RoomType_Amenity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoomType_ServiceFix" Association="QLKSModel.FK_RoomType_ServiceFix">
+      <End Role="RoomType" EntitySet="RoomTypes" />
+      <End Role="RoomType_ServiceFix" EntitySet="RoomType_ServiceFix" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceFix_RoomType" Association="QLKSModel.FK_ServiceFix_RoomType">
+      <End Role="ServiceFix" EntitySet="ServiceFixes" />
+      <End Role="RoomType_ServiceFix" EntitySet="RoomType_ServiceFix" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Amenity">
+    <Key>
+      <PropertyRef Name="AmenityID" />
+    </Key>
+    <Property Name="AmenityID" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="AmenityName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Description" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="AmenityUnit" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="RoomType_Amenity" Relationship="QLKSModel.FK_Equipment_Amenity" FromRole="Amenity" ToRole="RoomType_Amenity" />
+  </EntityType>
+  <EntityType Name="CheckIn">
+    <Key>
+      <PropertyRef Name="CheckInID" />
+    </Key>
+    <Property Name="CheckInID" Type="Int32" Nullable="false" />
+    <Property Name="GroupID" Type="Int32" />
+    <Property Name="DateIn" Type="DateTime" Precision="0" />
+    <Property Name="Discount" Type="Int32" />
+    <Property Name="Tax" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DateOut" Type="DateTime" Precision="0" />
+    <Property Name="OutofTime" Type="Int32" />
+    <Property Name="Comment" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="RoomCharge" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CheckInStatus" Type="Boolean" />
+    <NavigationProperty Name="checkin_Custommer" Relationship="QLKSModel.FK_checkin_Custommer_CheckIn" FromRole="CheckIn" ToRole="checkin_Custommer" />
+    <NavigationProperty Name="Invoices" Relationship="QLKSModel.FK_Invoice_CheckIn" FromRole="CheckIn" ToRole="Invoice" />
+    <NavigationProperty Name="ListRooms" Relationship="QLKSModel.FK_ListRooms_CheckIn" FromRole="CheckIn" ToRole="ListRooms" />
+  </EntityType>
+  <EntityType Name="checkin_Custommer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="CheckInID" Type="Int32" />
+    <Property Name="roomMaster" Type="Boolean" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CheckIn" Relationship="QLKSModel.FK_checkin_Custommer_CheckIn" FromRole="checkin_Custommer" ToRole="CheckIn" />
+    <NavigationProperty Name="Customer" Relationship="QLKSModel.FK_checkin_Custommer_Custommer" FromRole="checkin_Custommer" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="CONFIGCOMP">
+    <Key>
+      <PropertyRef Name="CompanyName" />
+    </Key>
+    <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="CompanyAdd" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="TaxCode" Type="String" MaxLength="15" Unicode="false" FixedLength="true" />
+    <Property Name="AccountNo" Type="String" MaxLength="15" Unicode="false" FixedLength="true" />
+    <Property Name="Phone" Type="String" MaxLength="15" Unicode="false" FixedLength="true" />
+    <Property Name="Fax" Type="Int32" />
+    <Property Name="FloorNo" Type="Int32" />
+    <Property Name="PositionNo" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="IDCard" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Mail" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Sex" Type="Boolean" />
+    <Property Name="NationalityID" Type="Int32" />
+    <Property Name="Company" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="checkin_Custommer" Relationship="QLKSModel.FK_checkin_Custommer_Custommer" FromRole="Customers" ToRole="checkin_Custommer" />
+    <NavigationProperty Name="Nationality" Relationship="QLKSModel.FK_Customers_Nationality" FromRole="Customers" ToRole="Nationality" />
+    <NavigationProperty Name="Revervations" Relationship="QLKSModel.FK_Revervations_Customers" FromRole="Customers" ToRole="Revervations" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="InvoiceID" />
+    </Key>
+    <Property Name="InvoiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceDate" Type="DateTime" Precision="0" />
+    <Property Name="CheckInID" Type="Int32" />
+    <Property Name="Total" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="CheckIn" Relationship="QLKSModel.FK_Invoice_CheckIn" FromRole="Invoice" ToRole="CheckIn" />
+  </EntityType>
+  <EntityType Name="ListRoom">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CheckInID" Type="Int32" Nullable="false" />
+    <Property Name="RoomID" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="CheckIn" Relationship="QLKSModel.FK_ListRooms_CheckIn" FromRole="ListRooms" ToRole="CheckIn" />
+    <NavigationProperty Name="Room" Relationship="QLKSModel.FK_ListRooms_Room" FromRole="ListRooms" ToRole="Room" />
+  </EntityType>
+  <EntityType Name="Nationality">
+    <Key>
+      <PropertyRef Name="NationalityID" />
+    </Key>
+    <Property Name="NationalityID" Type="Int32" Nullable="false" />
+    <Property Name="NationalityName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Customers" Relationship="QLKSModel.FK_Customers_Nationality" FromRole="Nationality" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="RevervationRoomType">
+    <Key>
+      <PropertyRef Name="ReservationID" />
+    </Key>
+    <Property Name="ReservationID" Type="Int32" Nullable="false" />
+    <Property Name="RoomTypeID" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Numb" Type="Int32" />
+    <NavigationProperty Name="Revervation" Relationship="QLKSModel.FK_Revervation_Revervations" FromRole="RevervationRoomType" ToRole="Revervations" />
+    <NavigationProperty Name="RoomType" Relationship="QLKSModel.FK_Revervation_RoomType" FromRole="RevervationRoomType" ToRole="RoomType" />
+  </EntityType>
+  <EntityType Name="Revervation">
+    <Key>
+      <PropertyRef Name="ReservationID" />
+    </Key>
+    <Property Name="ReservationID" Type="Int32" Nullable="false" />
+    <Property Name="IsGroup" Type="Boolean" />
+    <Property Name="GroupName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="PeopleNumber" Type="Int32" />
+    <Property Name="ListRoom" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="DateIn" Type="DateTime" Precision="3" />
+    <Property Name="DateOut" Type="DateTime" Precision="3" />
+    <Property Name="Requests" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="BookingDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Customer" Relationship="QLKSModel.FK_Revervations_Customers" FromRole="Revervations" ToRole="Customers" />
+    <NavigationProperty Name="RevervationRoomType" Relationship="QLKSModel.FK_Revervation_Revervations" FromRole="Revervations" ToRole="RevervationRoomType" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="RoomNoID" />
+    </Key>
+    <Property Name="RoomNoID" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Floor" Type="Int32" />
+    <Property Name="Position" Type="Int32" />
+    <Property Name="RoomTypeID" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="RoomStatus" Type="Int32" />
+    <Property Name="RoomPhone" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ListRooms" Relationship="QLKSModel.FK_ListRooms_Room" FromRole="Room" ToRole="ListRooms" />
+    <NavigationProperty Name="RoomType" Relationship="QLKSModel.FK_Room_RoomType" FromRole="Room" ToRole="RoomType" />
+  </EntityType>
+  <EntityType Name="RoomType">
+    <Key>
+      <PropertyRef Name="RoomTypeID" />
+    </Key>
+    <Property Name="RoomTypeID" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="RoomTypeName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Depcriptions" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="RevervationRoomTypes" Relationship="QLKSModel.FK_Revervation_RoomType" FromRole="RoomType" ToRole="RevervationRoomType" />
+    <NavigationProperty Name="Rooms" Relationship="QLKSModel.FK_Room_RoomType" FromRole="RoomType" ToRole="Room" />
+    <NavigationProperty Name="RoomType_Amenity" Relationship="QLKSModel.FK_Equipment_RoomType" FromRole="RoomType" ToRole="RoomType_Amenity" />
+    <NavigationProperty Name="RoomType_ServiceFix" Relationship="QLKSModel.FK_RoomType_ServiceFix" FromRole="RoomType" ToRole="RoomType_ServiceFix" />
+  </EntityType>
+  <EntityType Name="RoomType_Amenity">
+    <Key>
+      <PropertyRef Name="AmenityID" />
+    </Key>
+    <Property Name="AmenityID" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="RoomTypeID" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="Amenity" Relationship="QLKSModel.FK_Equipment_Amenity" FromRole="RoomType_Amenity" ToRole="Amenity" />
+    <NavigationProperty Name="RoomType" Relationship="QLKSModel.FK_Equipment_RoomType" FromRole="RoomType_Amenity" ToRole="RoomType" />
+  </EntityType>
+  <EntityType Name="RoomType_ServiceFix">
+    <Key>
+      <PropertyRef Name="ServiceFixID" />
+    </Key>
+    <Property Name="ServiceFixID" Type="Int32" Nullable="false" />
+    <Property Name="RoomTypeID" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="RoomType" Relationship="QLKSModel.FK_RoomType_ServiceFix" FromRole="RoomType_ServiceFix" ToRole="RoomType" />
+    <NavigationProperty Name="ServiceFix" Relationship="QLKSModel.FK_ServiceFix_RoomType" FromRole="RoomType_ServiceFix" ToRole="ServiceFix" />
+  </EntityType>
+  <EntityType Name="ServiceFix">
+    <Key>
+      <PropertyRef Name="ServiceFixId" />
+    </Key>
+    <Property Name="ServiceFixId" Type="Int32" Nullable="false" />
+    <Property Name="ServiceFixName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="RoomType_ServiceFix" Relationship="QLKSModel.FK_ServiceFix_RoomType" FromRole="ServiceFix" ToRole="RoomType_ServiceFix" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UsersID" />
+    </Key>
+    <Property Name="UsersID" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Birth" Type="DateTime" Precision="0" />
+    <Property Name="NativeCountry" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Sex" Type="Boolean" />
+    <Property Name="systemRolle" Type="Boolean" />
+    <Property Name="resourceRolle" Type="Boolean" />
+    <Property Name="ReservationRolle" Type="Boolean" />
+    <Property Name="reportRolle" Type="Boolean" />
+    <Property Name="Pass" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="login_id" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Equipment_Amenity">
+    <End Role="Amenity" Type="QLKSModel.Amenity" Multiplicity="1" />
+    <End Role="RoomType_Amenity" Type="QLKSModel.RoomType_Amenity" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Amenity">
+        <PropertyRef Name="AmenityID" />
+      </Principal>
+      <Dependent Role="RoomType_Amenity">
+        <PropertyRef Name="AmenityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_checkin_Custommer_CheckIn">
+    <End Role="CheckIn" Type="QLKSModel.CheckIn" Multiplicity="0..1" />
+    <End Role="checkin_Custommer" Type="QLKSModel.checkin_Custommer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckIn">
+        <PropertyRef Name="CheckInID" />
+      </Principal>
+      <Dependent Role="checkin_Custommer">
+        <PropertyRef Name="CheckInID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Invoice_CheckIn">
+    <End Role="CheckIn" Type="QLKSModel.CheckIn" Multiplicity="0..1" />
+    <End Role="Invoice" Type="QLKSModel.Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckIn">
+        <PropertyRef Name="CheckInID" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="CheckInID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListRooms_CheckIn">
+    <End Role="CheckIn" Type="QLKSModel.CheckIn" Multiplicity="1" />
+    <End Role="ListRooms" Type="QLKSModel.ListRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckIn">
+        <PropertyRef Name="CheckInID" />
+      </Principal>
+      <Dependent Role="ListRooms">
+        <PropertyRef Name="CheckInID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_checkin_Custommer_Custommer">
+    <End Role="Customers" Type="QLKSModel.Customer" Multiplicity="0..1" />
+    <End Role="checkin_Custommer" Type="QLKSModel.checkin_Custommer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="checkin_Custommer">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customers_Nationality">
+    <End Role="Nationality" Type="QLKSModel.Nationality" Multiplicity="0..1" />
+    <End Role="Customers" Type="QLKSModel.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nationality">
+        <PropertyRef Name="NationalityID" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="NationalityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Revervations_Customers">
+    <End Role="Customers" Type="QLKSModel.Customer" Multiplicity="0..1" />
+    <End Role="Revervations" Type="QLKSModel.Revervation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Revervations">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListRooms_Room">
+    <End Role="Room" Type="QLKSModel.Room" Multiplicity="1" />
+    <End Role="ListRooms" Type="QLKSModel.ListRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="RoomNoID" />
+      </Principal>
+      <Dependent Role="ListRooms">
+        <PropertyRef Name="RoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Revervation_Revervations">
+    <End Role="Revervations" Type="QLKSModel.Revervation" Multiplicity="1" />
+    <End Role="RevervationRoomType" Type="QLKSModel.RevervationRoomType" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Revervations">
+        <PropertyRef Name="ReservationID" />
+      </Principal>
+      <Dependent Role="RevervationRoomType">
+        <PropertyRef Name="ReservationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Revervation_RoomType">
+    <End Role="RoomType" Type="QLKSModel.RoomType" Multiplicity="0..1" />
+    <End Role="RevervationRoomType" Type="QLKSModel.RevervationRoomType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomType">
+        <PropertyRef Name="RoomTypeID" />
+      </Principal>
+      <Dependent Role="RevervationRoomType">
+        <PropertyRef Name="RoomTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Room_RoomType">
+    <End Role="RoomType" Type="QLKSModel.RoomType" Multiplicity="0..1" />
+    <End Role="Room" Type="QLKSModel.Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomType">
+        <PropertyRef Name="RoomTypeID" />
+      </Principal>
+      <Dependent Role="Room">
+        <PropertyRef Name="RoomTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Equipment_RoomType">
+    <End Role="RoomType" Type="QLKSModel.RoomType" Multiplicity="0..1" />
+    <End Role="RoomType_Amenity" Type="QLKSModel.RoomType_Amenity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomType">
+        <PropertyRef Name="RoomTypeID" />
+      </Principal>
+      <Dependent Role="RoomType_Amenity">
+        <PropertyRef Name="RoomTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoomType_ServiceFix">
+    <End Role="RoomType" Type="QLKSModel.RoomType" Multiplicity="0..1" />
+    <End Role="RoomType_ServiceFix" Type="QLKSModel.RoomType_ServiceFix" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomType">
+        <PropertyRef Name="RoomTypeID" />
+      </Principal>
+      <Dependent Role="RoomType_ServiceFix">
+        <PropertyRef Name="RoomTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceFix_RoomType">
+    <End Role="ServiceFix" Type="QLKSModel.ServiceFix" Multiplicity="1" />
+    <End Role="RoomType_ServiceFix" Type="QLKSModel.RoomType_ServiceFix" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceFix">
+        <PropertyRef Name="ServiceFixId" />
+      </Principal>
+      <Dependent Role="RoomType_ServiceFix">
+        <PropertyRef Name="ServiceFixID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

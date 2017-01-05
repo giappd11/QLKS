@@ -1,0 +1,44 @@
+﻿@model IEnumerable<QLKS.Models.Room>
+<thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Position)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().RoomType.RoomTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().RoomType.Price)
+        </th>
+    </tr>
+</thead>
+@foreach (var item in Model)
+{
+    <tr>
+        <td style ="width: 30%">
+            @Html.DisplayFor(modelItem => item.Position)
+            @Html.HiddenFor(modelItem => item.RoomNoID)
+        </td>
+        <td style ="width: 30%">
+            @Html.DisplayFor(modelItem => item.RoomType.RoomTypeName)
+        </td>
+        <td style ="width: 40%;min-width: 170px;">
+            @Html.DisplayFor(modelItem => item.RoomType.Price)
+        </td>
+    </tr>
+}
+<tr>
+    <td colspan="3">
+        <script>
+            jQuery("table.roomtype tbody tr").click(function () {
+                var id = jQuery(this).find("input").val();
+                jQuery("#ListRooms option").each(function () {
+                    if (this.value == id) {
+                        jQuery(this).prop("selected", true);
+                    }
+                });
+                jQuery(".multiple").select2();
+            });
+        </script>
+    </td>
+</tr>

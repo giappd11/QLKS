@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLKSModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Amenities">
+      <EntityTypeMapping TypeName="QLKSModel.Amenity">
+        <MappingFragment StoreEntitySet="Amenity">
+          <ScalarProperty Name="AmenityID" ColumnName="AmenityID" />
+          <ScalarProperty Name="AmenityName" ColumnName="AmenityName" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AmenityUnit" ColumnName="AmenityUnit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CheckIns">
+      <EntityTypeMapping TypeName="QLKSModel.CheckIn">
+        <MappingFragment StoreEntitySet="CheckIn">
+          <ScalarProperty Name="CheckInID" ColumnName="CheckInID" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="DateIn" ColumnName="DateIn" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="DateOut" ColumnName="DateOut" />
+          <ScalarProperty Name="OutofTime" ColumnName="OutofTime" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="RoomCharge" ColumnName="RoomCharge" />
+          <ScalarProperty Name="CheckInStatus" ColumnName="CheckInStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="checkin_Custommer">
+      <EntityTypeMapping TypeName="QLKSModel.checkin_Custommer">
+        <MappingFragment StoreEntitySet="checkin_Custommer">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="CheckInID" ColumnName="CheckInID" />
+          <ScalarProperty Name="roomMaster" ColumnName="roomMaster" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONFIGCOMPs">
+      <EntityTypeMapping TypeName="QLKSModel.CONFIGCOMP">
+        <MappingFragment StoreEntitySet="CONFIGCOMP">
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CompanyAdd" ColumnName="CompanyAdd" />
+          <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="FloorNo" ColumnName="FloorNo" />
+          <ScalarProperty Name="PositionNo" ColumnName="PositionNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="QLKSModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="NationalityID" ColumnName="NationalityID" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invoices">
+      <EntityTypeMapping TypeName="QLKSModel.Invoice">
+        <MappingFragment StoreEntitySet="Invoice">
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="CheckInID" ColumnName="CheckInID" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListRooms">
+      <EntityTypeMapping TypeName="QLKSModel.ListRoom">
+        <MappingFragment StoreEntitySet="ListRooms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CheckInID" ColumnName="CheckInID" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nationalities">
+      <EntityTypeMapping TypeName="QLKSModel.Nationality">
+        <MappingFragment StoreEntitySet="Nationality">
+          <ScalarProperty Name="NationalityID" ColumnName="NationalityID" />
+          <ScalarProperty Name="NationalityName" ColumnName="NationalityName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RevervationRoomTypes">
+      <EntityTypeMapping TypeName="QLKSModel.RevervationRoomType">
+        <MappingFragment StoreEntitySet="RevervationRoomType">
+          <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
+          <ScalarProperty Name="RoomTypeID" ColumnName="RoomTypeID" />
+          <ScalarProperty Name="Numb" ColumnName="Numb" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Revervations">
+      <EntityTypeMapping TypeName="QLKSModel.Revervation">
+        <MappingFragment StoreEntitySet="Revervations">
+          <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
+          <ScalarProperty Name="IsGroup" ColumnName="IsGroup" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="PeopleNumber" ColumnName="PeopleNumber" />
+          <ScalarProperty Name="ListRoom" ColumnName="ListRoom" />
+          <ScalarProperty Name="DateIn" ColumnName="DateIn" />
+          <ScalarProperty Name="DateOut" ColumnName="DateOut" />
+          <ScalarProperty Name="Requests" ColumnName="Requests" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="QLKSModel.Room">
+        <MappingFragment StoreEntitySet="Room">
+          <ScalarProperty Name="RoomNoID" ColumnName="RoomNoID" />
+          <ScalarProperty Name="Floor" ColumnName="Floor" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="RoomTypeID" ColumnName="RoomTypeID" />
+          <ScalarProperty Name="RoomStatus" ColumnName="RoomStatus" />
+          <ScalarProperty Name="RoomPhone" ColumnName="RoomPhone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomTypes">
+      <EntityTypeMapping TypeName="QLKSModel.RoomType">
+        <MappingFragment StoreEntitySet="RoomType">
+          <ScalarProperty Name="RoomTypeID" ColumnName="RoomTypeID" />
+          <ScalarProperty Name="RoomTypeName" ColumnName="RoomTypeName" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Depcriptions" ColumnName="Depcriptions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomType_Amenity">
+      <EntityTypeMapping TypeName="QLKSModel.RoomType_Amenity">
+        <MappingFragment StoreEntitySet="RoomType_Amenity">
+          <ScalarProperty Name="AmenityID" ColumnName="AmenityID" />
+          <ScalarProperty Name="RoomTypeID" ColumnName="RoomTypeID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomType_ServiceFix">
+      <EntityTypeMapping TypeName="QLKSModel.RoomType_ServiceFix">
+        <MappingFragment StoreEntitySet="RoomType_ServiceFix">
+          <ScalarProperty Name="ServiceFixID" ColumnName="ServiceFixID" />
+          <ScalarProperty Name="RoomTypeID" ColumnName="RoomTypeID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceFixes">
+      <EntityTypeMapping TypeName="QLKSModel.ServiceFix">
+        <MappingFragment StoreEntitySet="ServiceFix">
+          <ScalarProperty Name="ServiceFixId" ColumnName="ServiceFixId" />
+          <ScalarProperty Name="ServiceFixName" ColumnName="ServiceFixName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="QLKSModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UsersID" ColumnName="UsersID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Birth" ColumnName="Birth" />
+          <ScalarProperty Name="NativeCountry" ColumnName="NativeCountry" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="systemRolle" ColumnName="systemRolle" />
+          <ScalarProperty Name="resourceRolle" ColumnName="resourceRolle" />
+          <ScalarProperty Name="ReservationRolle" ColumnName="ReservationRolle" />
+          <ScalarProperty Name="reportRolle" ColumnName="reportRolle" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="login_id" ColumnName="login_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetNextAmenitySeq" FunctionName="QLKSModel.Store.GetNextAmenitySeq" />
+    <FunctionImportMapping FunctionImportName="GetNextcheckInCustomerSeq" FunctionName="QLKSModel.Store.GetNextcheckInCustomerSeq" />
+    <FunctionImportMapping FunctionImportName="GetNextCheckinSeq" FunctionName="QLKSModel.Store.GetNextCheckinSeq" />
+    <FunctionImportMapping FunctionImportName="GetNextCustomersSeq" FunctionName="QLKSModel.Store.GetNextCustomersSeq" />
+    <FunctionImportMapping FunctionImportName="GetNextRoomSeq" FunctionName="QLKSModel.Store.GetNextRoomSeq" />
+    <FunctionImportMapping FunctionImportName="GetNextRoomTypeSeq" FunctionName="QLKSModel.Store.GetNextRoomTypeSeq" />
+  </EntityContainerMapping>
+</Mapping>

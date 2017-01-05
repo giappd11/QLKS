@@ -1,0 +1,72 @@
+﻿@model QLKS.Models.Revervation
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Revervation</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RevervationRoomType.RoomTypeID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RevervationRoomType.RoomTypeID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Customer.IDCard)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Customer.IDCard)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PeopleNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PeopleNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateIn)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateIn)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateOut)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateOut)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Requests)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Requests)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Status)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Status)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BookingDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BookingDate)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

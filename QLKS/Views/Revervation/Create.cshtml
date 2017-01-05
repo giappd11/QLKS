@@ -1,0 +1,340 @@
+﻿@model QLKS.Models.CreateRevervation
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<div class="col-md-12">
+    <div class="portlet light   ">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-pin font-red"></i>
+                <span class="caption-subject font-red sbold uppercase">Đặt Phòng</span>
+            </div>
+        </div>
+        <div class="portlet-body">
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true) 
+                
+                @Html.HiddenFor(model => model.customer.CustomerID)
+                 
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.revervation.ReservationsRooms, "Phòng") <span class="required">*</span>
+                    </div>
+                    <div class="col-md-9">
+                        @Html.ListBox("ReservationsRoom", ViewBag.RoomNoID as MultiSelectList, htmlAttributes: new { style = "height: 90px" })
+                        @Html.ValidationMessageFor(model => model.ReservationsRoom)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.revervation.BookingDate)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.revervation.BookingDate)
+                        @Html.HiddenFor(model => model.revervation.BookingDate)
+                        @Html.ValidationMessageFor(model => model.revervation.BookingDate)
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.revervation.DateIn)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.revervation.DateIn)
+                        @Html.HiddenFor(model => model.revervation.DateIn)
+                        @Html.ValidationMessageFor(model => model.revervation.DateIn)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.revervation.DateOut)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.revervation.DateOut)
+                        @Html.HiddenFor(model => model.revervation.DateOut)
+                        @Html.ValidationMessageFor(model => model.revervation.DateOut)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.revervation.PeopleNumber)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.revervation.PeopleNumber)
+                        @Html.ValidationMessageFor(model => model.revervation.PeopleNumber)
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.revervation.Requests)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.revervation.Requests)
+                        @Html.ValidationMessageFor(model => model.revervation.Requests)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        
+                    </div>
+                    <div class="col-md-9">
+                        <h2>Thông tin khách hàng</h2>
+                    </div>
+                </div>
+                <h2></h2>
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.customer.Name)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.customer.Name)
+                        <span  id ="showmodle" style="margin-left: 10px;" class="btn submit">
+                            <i class="icon-magnifier"></i>
+                        </span>
+                        <span class ="dienlai btn">Điền lại thông tin khách hàng</span>
+                        @Html.ValidationMessageFor(model => model.customer.Name)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.customer.IDCard)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.customer.IDCard)
+                        @Html.ValidationMessageFor(model => model.customer.IDCard)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.customer.Phone)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.customer.Phone)
+                        @Html.ValidationMessageFor(model => model.customer.Phone)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.customer.Mail)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.customer.Mail)
+                        @Html.ValidationMessageFor(model => model.customer.Mail)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.customer.Sex)
+                    </div>
+                    <div class="col-md-9">
+                        <select name="Customer.Sex" id="Customer_Sex">
+                            <option value="True">Nam</option>
+                            <option value="False">Nữ</option>
+                        </select>
+                        @Html.ValidationMessageFor(model => model.customer.Sex)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.customer.NationalityID)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.DropDownList("customer_NationalityID", String.Empty)
+                        @Html.ValidationMessageFor(model => model.customer.NationalityID)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.customer.Address)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.customer.Address)
+                        @Html.ValidationMessageFor(model => model.customer.Address)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.customer.Company)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.customer.Company)
+                        @Html.ValidationMessageFor(model => model.customer.Company)
+                    </div>
+                </div>
+                <div class="box_button">
+                    <button>Đặt phòng</button>
+                </div> 
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal  fade" id="SearchCustomer" role="dialog">
+    <div class="dialog_box">
+
+        <div class="modal-header">
+            Tìm kiếm khách hàng
+            <a class="close" data-dismiss="modal"></a>
+        </div>
+        <div class="modal-body">
+            <div id="search_Cus">
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        <label for="Customer_IDCard">Số CMND/Hộ chiếu</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input class="text-box single-line form-control form-control-inline input-medium" id="Customer_IDCard" name="Customer.IDCard" type="text" value="">
+                        <span class="field-validation-valid" data-valmsg-for="Customer.IDCard" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        <label for="Customer_Name">Họ và tên</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input class="text-box single-line form-control form-control-inline input-medium" id="Customer_Name" name="Customer.Name" type="text" value="">
+                        <span class="field-validation-valid" data-valmsg-for="Customer.Name" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        <label for="Customer_Phone">Số điện thoại</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input class="text-box single-line form-control form-control-inline input-medium" id="Customer_Phone" name="Customer.Phone" type="text" value="">
+                        <span class="field-validation-valid" data-valmsg-for="Customer.Phone" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        <label for="Customer_Mail">Email</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input class="text-box single-line form-control form-control-inline input-medium" id="Customer_Mail" name="Customer.Mail" type="email" value="">
+                        <span class="field-validation-valid" data-valmsg-for="Customer.Mail" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="box_button">
+                <a class="btn" onclick="SearchCustomer()">Tìm kiếm</a>
+            </div>
+            <div id="ListSearch">
+            </div>
+        </div>
+        <div class="modle-footer">
+
+            <!--data-dismiss="modal" -->
+        </div>
+
+    </div>
+</div>
+<script>
+    jQuery(document).ready(function () {
+        jQuery("#revervation_BookingDate").attr("disabled", "disabled");
+        jQuery("#revervation_DateOut").attr("disabled", "disabled");
+        jQuery("#revervation_DateIn").attr("disabled", "disabled");
+        jQuery("#showmodle").click(function () {
+            showmodle();
+        });
+
+        var cusID = jQuery("#customer_CustomerID").val();
+        if (cusID != "" && cusID != 0) {
+            jQuery("#customer_CustomerID").attr("readOnly", "readOnly");
+            jQuery("#customer_Name").attr("readOnly", "readOnly");
+            jQuery("#customer_IDCard").attr("readOnly", "readOnly");
+            jQuery("#customer_Phone").attr("readOnly", "readOnly");
+            jQuery("#customer_Mail").attr("readOnly", "readOnly");
+            jQuery("#customer_Address").attr("readOnly", "readOnly");
+            jQuery("#Customer_Sex").attr("readOnly", "readOnly");
+            jQuery("#customer_NationalityID").attr("readOnly", "readOnly");
+            jQuery("#customer_Company").attr("readOnly", "readOnly");
+        }
+
+        jQuery(".dienlai").click(function () {
+            jQuery("#customer_CustomerID").val("");
+            jQuery("#customer_Name").val("");
+            jQuery("#customer_IDCard").val("");
+            jQuery("#customer_Phone").val("");
+            jQuery("#customer_Mail").val("");
+            jQuery("#customer_Address").val("");
+            jQuery("#customer_Sex").val("");
+            jQuery("#customer_NationalityID").val("");
+            jQuery("#customer_Company").val("");
+             
+            jQuery("#customer_Name").removeAttr("readOnly");
+            jQuery("#customer_IDCard").removeAttr("readOnly");
+            jQuery("#customer_Phone").removeAttr("readOnly");
+            jQuery("#customer_Mail").removeAttr("readOnly");
+            jQuery("#customer_Address").removeAttr("readOnly");
+            jQuery("#Customer_Sex").removeAttr("readOnly");
+            jQuery("#customer_NationalityID").removeAttr("readOnly");
+            jQuery("#customer_Company").removeAttr("readOnly");
+        });
+    })
+    function showmodle() {
+        jQuery("#SearchCustomer").modal();
+
+    }
+    function SearchCustomer() {
+        jQuery(".loading").fadeIn();
+        var IDCard = jQuery("#search_Cus #Customer_IDCard").val();
+        var Name = jQuery("#search_Cus #Customer_Name").val();
+        var Phone = jQuery("#search_Cus #Customer_Phone").val();
+        var Mail = jQuery("#search_Cus #Customer_Mail").val();
+        jQuery.ajax({
+            url: "../Customer/Search?name=" + Name + "&cmnd=" + IDCard + "&phone=" + Phone + "&mail=" + Mail +"&showOne=1",
+            success: function (result) {
+                jQuery("#ListSearch").html("");
+                jQuery("#ListSearch").html(result);
+                jQuery(".loading").fadeOut();
+            }
+        });
+    }
+    function addCus() { 
+        var id = "";
+        jQuery("#ListSearch input[type='radio']:checked").each(function (el) {
+            id = jQuery(this).val(); 
+        })
+        jQuery(".loading").fadeIn();
+        jQuery.ajax({
+            url: "../Customer/SearchAddJson?id=" + id,
+            dataType: 'json',
+            success: function (result) {
+                $.each(JSON.parse(result), function (index, element) { 
+                    jQuery("#customer_CustomerID").val(element.CustomerID);
+                    jQuery("#customer_Name").val(element.Name);
+                    jQuery("#customer_IDCard").val(element.IDCard);
+                    jQuery("#customer_Phone").val(element.Phone);
+                    jQuery("#customer_Mail").val(element.Mail);
+                    jQuery("#customer_Address").val(element.Address);
+                    jQuery("#customer_Sex").val(element.Sex);
+                    jQuery("#customer_NationalityID").val(element.NationalityID);
+                    jQuery("#customer_Company").val(element.Company);
+                    jQuery("#customer_CustomerID").attr("readOnly","readOnly");
+                    jQuery("#customer_Name").attr("readOnly", "readOnly");
+                    jQuery("#customer_IDCard").attr("readOnly", "readOnly");
+                    jQuery("#customer_Phone").attr("readOnly", "readOnly");
+                    jQuery("#customer_Mail").attr("readOnly", "readOnly");
+                    jQuery("#customer_Address").attr("readOnly", "readOnly");
+                    jQuery("#Customer_Sex").attr("readOnly", "readOnly");
+                    jQuery("#customer_NationalityID").attr("readOnly", "readOnly");
+                    jQuery("#customer_Company").attr("readOnly", "readOnly");
+                    jQuery(".loading").fadeOut();
+                    jQuery("#SearchCustomer").modal("hide");
+                    alert("thành công");
+                });
+                
+            }
+        });
+        
+    }
+</script>
+<style>
+    #customer_Name {
+        display: inline-block;
+        float: left;
+    }
+</style>

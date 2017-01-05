@@ -1,0 +1,92 @@
+﻿@model QLKS.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>User</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UsersID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UsersID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Phone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Birth)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Birth)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NativeCountry)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NativeCountry)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Sex)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sex)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.systemRolle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.systemRolle)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.resourceRolle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.resourceRolle)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReservationRolle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReservationRolle)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.reportRolle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.reportRolle)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Pass)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pass)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

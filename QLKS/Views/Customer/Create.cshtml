@@ -1,0 +1,88 @@
+﻿@model QLKS.Models.Customer
+
+@{
+    Layout = "../Shared/_LayoutPage.cshtml";
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Customer</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IDCard)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IDCard)
+            @Html.ValidationMessageFor(model => model.IDCard)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Phone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Phone)
+            @Html.ValidationMessageFor(model => model.Phone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Mail)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Mail)
+            @Html.ValidationMessageFor(model => model.Mail)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Address)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sex)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sex)
+            @Html.ValidationMessageFor(model => model.Sex)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NationalityID, "Nationality")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("NationalityID", String.Empty)
+            @Html.ValidationMessageFor(model => model.NationalityID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Company)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Company)
+            @Html.ValidationMessageFor(model => model.Company)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

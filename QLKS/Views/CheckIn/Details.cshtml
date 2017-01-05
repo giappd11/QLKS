@@ -1,0 +1,564 @@
+﻿@model QLKS.Models.DetailsChecin
+
+@{
+    ViewBag.Title = "Nhận phòng";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="portlet light   ">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-pin font-red"></i>
+                <span class="caption-subject font-red sbold uppercase">Thông tin chi tiết</span>
+            </div>
+
+        </div>
+        <div class="portlet-body">
+
+
+            @using (Html.BeginForm("Index", "Checkin"))
+            {
+                @Html.ValidationSummary(true)
+      
+                <input name="remove" value="" type="hidden" />
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.Create.ListRooms, "Phòng")
+                    </div>
+                    <div class="col-md-9">
+                        <p class="form-control-static">
+                            @{var i_count = 0; }
+                            @foreach (var md in Model.ListRoom)
+                            {
+                                i_count++;
+                                @Html.DisplayFor(itemmodel => @md.Position) 
+                       
+                                if (i_count < Model.ListRoom.Count())
+                                {
+                                <span>,</span>
+                                }
+                            }
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.Create.DateIn)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.Create.DateIn, new { @readonly = "readonly" })
+                        @Html.ValidationMessageFor(model => model.Create.DateIn)
+
+
+                    </div>
+                </div>
+ 
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.Create.DateOut)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.Create.DateOut,new { @readOnly = "readonly"  })
+                        @Html.ValidationMessageFor(model => model.Create.DateOut)
+                    </div>
+                </div>
+ 
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.Create.Comment)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.TextAreaFor(model => model.Create.Comment, new { @readOnly = "readonly" })
+                        @Html.ValidationMessageFor(model => model.Create.Comment)
+                    </div>
+                </div>
+ 
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-pin font-red"></i>
+                        <span class="caption-subject font-red sbold uppercase">Thông tin khách hàng</span>
+                    </div>
+
+                </div>
+                <div class="portlet-body">
+
+                    <div class="custommer_list" id="cus_list">
+                        <div class="table-scrollable">
+                            <table class="table table-striped table-hover">
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Customer.Name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Customer.Phone)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Customer.IDCard)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Customer.Mail)
+                                </th>
+                                <th>Chủ phòng
+                                </th>
+                                @if (Model.CustomerList != null)
+                                {
+                                    int i = 0;
+
+                                    foreach (var item in Model.CustomerList)
+                                    { 
+                                    <tr>
+                                        <td>
+                                            <a href = 'javascript:showDialogEdit(@i)' >@Html.DisplayFor(modle => item.Name)  </a>
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modle => item.Phone)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modle => item.IDCard)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modle => item.Mail)
+                                        </td>
+                                        <td> 
+                                            @if (  Model.Create.checkin_Custommer.ToList()[i].roomMaster.ToString().Trim() == "True")
+                                            {
+                                                <input name='selectedCus' value ="@i" type='radio' checked ="checked" disabled ="disabled"/>
+                                            }
+                                            else
+                                            { 
+                                                <input name='selectedCus' value ="@i" type='radio'  disabled ="disabled"/>
+                                            } 
+                                        </td>
+                                    </tr>
+                                            i += 1;
+                                    }
+                                }
+
+                            </table>
+                            @Html.ValidationMessageFor(model => model.CustomerList)
+                        </div>
+                    </div>
+                    <div class="list_customer">
+                        <table id="listCus" style="display: none;">
+                            @if (Model.CustomerList != null)
+                            {
+                                int i = 0;
+
+                                foreach (var item in Model.CustomerList)
+                                {
+                                <tr>
+                                    <td>
+                                        @Html.Hidden("CustomerList[" + i + "].IDCard", @item.IDCard, htmlAttributes: new { @class = "CustomerList" + i + "_IDCard", @id = "" })
+                                    </td>
+                                    <td>
+                                        @Html.Hidden("CustomerList[" + i + "].Name", @item.Name, htmlAttributes: new { @class = "CustomerList" + i + "_Name", @id = "" })
+                                    </td>
+                                    <td>
+                                        @Html.Hidden("CustomerList[" + i + "].Phone", @item.Phone, htmlAttributes: new { @class = "CustomerList" + i + "_Phone", @id = "" })
+                                    </td>
+                                    <td>
+                                        @Html.Hidden("CustomerList[" + i + "].Mail", @item.Mail, htmlAttributes: new { @class = "CustomerList" + i + "_Mail", @id = "" })
+                                    </td>
+                                    <td>
+                                        @Html.Hidden("CustomerList[" + i + "].Address", @item.Address, htmlAttributes: new { @class = "CustomerList" + i + "_Address", @id = "" })
+
+                                    </td>
+                                    <td>
+                                        @Html.Hidden("CustomerList[" + i + "].Sex", @item.Sex, htmlAttributes: new { @class = "CustomerList" + i + "_Sex", @id = "" })
+
+                                    </td>
+                                    <td>
+                                        @Html.Hidden("CustomerList[" + i + "].NationalityID", @item.NationalityID, htmlAttributes: new { @class = "CustomerList" + i + "_NationalityID", @id = "" })
+                                    </td>
+                                    <td>
+                                        @Html.Hidden("CustomerList[" + i + "].Company", @item.Company, htmlAttributes: new { @class = "CustomerList" + i + "_Company", @id = "" })
+
+                                    </td>
+                                    <td>
+                                        @Html.Hidden("CustomerList[" + i + "].CustomerID", @item.CustomerID, htmlAttributes: new { @class = "CustomerList" + i + "_CustomerID", @id = "" })
+
+                                    </td>
+                                </tr>
+                                    i++;
+                                }
+                            }
+                        </table>
+                    </div>
+                    <div class="box_button">
+                        <a class="btn" href="/Checkin/ListCheckin">Thoát</a>
+                    </div>
+                </div>
+            }
+
+            <div class="modal  fade" id="myModal" role="dialog">
+                <div class="dialog_box">
+                    <div class="modal-header">
+                        Thêm khách hàng
+            <a class="close" data-dismiss="modal"></a>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" value="" name="index" class="index" />
+                        @Html.HiddenFor(model => model.Customer.CustomerID)
+                        <div class="form-group">
+                            <div class="control-label col-md-3">
+                                @Html.LabelFor(model => model.Customer.IDCard) <span class="required">*</span>
+                            </div>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(model => model.Customer.IDCard, new { @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.Customer.IDCard)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="control-label col-md-3">
+                                @Html.LabelFor(model => model.Customer.Name) <span class="required">*</span>
+                            </div>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(model => model.Customer.Name, new { @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.Customer.Name)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="control-label col-md-3">
+                                @Html.LabelFor(model => model.Customer.Phone) <span class="required">*</span>
+                            </div>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(model => model.Customer.Phone, new { @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.Customer.Phone)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="control-label col-md-3">
+                                @Html.LabelFor(model => model.Customer.Mail) <span class="required">*</span>
+                            </div>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(model => model.Customer.Mail, new { @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.Customer.Mail)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="control-label col-md-3">
+                                @Html.LabelFor(model => model.Customer.Address) <span class="required">*</span>
+                            </div>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(model => model.Customer.Address, new { @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.Customer.Address)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="control-label col-md-3">
+                                @Html.LabelFor(model => model.Customer.Sex) <span class="required">*</span>
+                            </div>
+                            <div class="col-md-9">
+                                @*Html.EditorFor(model => model.Customer.Sex)*@
+                                <select name="Customer.Sex" id="Customer_Sex">
+                                    <option value="True">Nam</option>
+                                    <option value="False">Nữ</option>
+                                </select>
+                                @Html.ValidationMessageFor(model => model.Customer.Sex)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="control-label col-md-3">
+                                @Html.LabelFor(model => model.Customer.NationalityID, "Quốc tịch") <span class="required">*</span>
+                            </div>
+                            <div class="col-md-9">
+                                @Html.DropDownList("NationalityID", String.Empty)
+                                @Html.ValidationMessageFor(model => model.Customer.NationalityID)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="control-label col-md-3">
+                                @Html.LabelFor(model => model.Customer.Company)
+                            </div>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(model => model.Customer.Company, new { @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.Customer.Company)
+                            </div>
+                        </div>
+                        <div class="box_button">
+                            <button class="btn grey-salsa btn-outline" data-dismiss="modal" aria-hidden="true">Thoát</button>
+                            <!--data-dismiss="modal" -->
+                        </div>
+                    </div>
+                    <div class="modle-footer">
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal  fade" id="SearchCustomer" role="dialog">
+                <div class="dialog_box">
+
+                    <div class="modal-header">
+                        Tìm kiếm khách hàng
+            <a class="close" data-dismiss="modal"></a>
+                    </div>
+                    <div class="modal-body">
+                        <div id="search_Cus">
+                            <div class="form-group">
+                                <div class="control-label col-md-3">
+                                    @Html.LabelFor(model => model.Customer.IDCard)
+                                </div>
+                                <div class="col-md-9">
+                                    @Html.EditorFor(model => model.Customer.IDCard)
+                                    @Html.ValidationMessageFor(model => model.Customer.IDCard)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="control-label col-md-3">
+                                    @Html.LabelFor(model => model.Customer.Name)
+                                </div>
+                                <div class="col-md-9">
+                                    @Html.EditorFor(model => model.Customer.Name)
+                                    @Html.ValidationMessageFor(model => model.Customer.Name)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="control-label col-md-3">
+                                    @Html.LabelFor(model => model.Customer.Phone)
+                                </div>
+                                <div class="col-md-9">
+                                    @Html.EditorFor(model => model.Customer.Phone)
+                                    @Html.ValidationMessageFor(model => model.Customer.Phone)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="control-label col-md-3">
+                                    @Html.LabelFor(model => model.Customer.Mail)
+                                </div>
+                                <div class="col-md-9">
+                                    @Html.EditorFor(model => model.Customer.Mail, new { type ="email" })
+                                    @Html.ValidationMessageFor(model => model.Customer.Mail)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box_button">
+                            <a class="btn" onclick="SearchCustomer()">Tìm kiếm</a>
+                        </div>
+                        <div id="ListSearch">
+                        </div>
+                    </div>
+                    <div class="modle-footer">
+
+                        <!--data-dismiss="modal" -->
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <script>
+                function SearchCustomer() {
+                    jQuery(".loading").fadeIn();
+                    var IDCard = jQuery("#search_Cus #Customer_IDCard").val();
+                    var Name = jQuery("#search_Cus #Customer_Name").val();
+                    var Phone = jQuery("#search_Cus #Customer_Phone").val();
+                    var Mail = jQuery("#search_Cus #Customer_Mail").val();
+                    jQuery.ajax({
+                        url: "../Customer/Search?name=" + Name + "&cmnd=" + IDCard + "&phone=" + Phone + "&mail=" + Mail,
+                        success: function (result) {
+                            jQuery("#ListSearch").html("");
+                            jQuery("#ListSearch").html(result);
+                            jQuery(".loading").fadeOut();
+                        }
+                    });
+                }
+                function addCustomer() {
+                    var table = document.getElementById("listCus");
+                    var index = jQuery(".modal-body .index").val();
+                    var IDCard = jQuery(".modal-body #Customer_IDCard").val();
+                    var Name = jQuery(".modal-body #Customer_Name").val();
+                    var Phone = jQuery(".modal-body #Customer_Phone").val();
+                    var Mail = jQuery(".modal-body #Customer_Mail").val();
+                    var Address = jQuery(".modal-body #Customer_Address").val();
+                    var Sex = jQuery(".modal-body #Customer_Sex").val();
+                    var NationalityID = jQuery(".modal-body #NationalityID").val();
+                    var Company = jQuery(".modal-body #Customer_Company").val();
+                    var CustomerID = jQuery(".modal-body #Customer_CustomerID").val();
+                    CustomerID = CustomerID == "" ? 0 : CustomerID;
+                    var check = true;
+
+                    if (IDCard == "") {
+                        jQuery("#myModal #Customer_IDCard").addClass("error");
+                        check = false;
+                    }
+                    if (Name == "") {
+                        jQuery("#myModal #Customer_Name").addClass("error");
+                        check = false;
+                    }
+                    if (Phone == "") {
+                        jQuery("#myModal #Customer_Phone").addClass("error");
+                        check = false;
+                    }
+                    if (Mail == "") {
+                        jQuery("#myModal #Customer_Mail").addClass("error");
+                        check = false;
+                    }
+                    if (Sex == "") {
+                        jQuery("#myModal #Customer_Sex").addClass("error");
+                        check = false;
+                    }
+                    if (NationalityID == "") {
+                        jQuery("#myModal #NationalityID").addClass("error");
+                        check = false;
+                    }
+                    if (check == true) {
+                        if (index == "") {
+                            var index = jQuery("#listCus > tbody > tr:last").index() + 1;
+                            var row = table.insertRow(index);
+                            var Cell1 = row.insertCell(0);
+                            Cell1.innerHTML = "<input class = 'CustomerList" + index + "_IDCard' name = 'CustomerList[" + index + "].IDCard' value = '" + IDCard + "' />";
+                            var Cell1 = row.insertCell(1);
+                            Cell1.innerHTML = "<input class = 'CustomerList" + index + "_Name'  name = 'CustomerList[" + index + "].Name' value = '" + Name + "' />";
+                            var Cell1 = row.insertCell(2);
+                            Cell1.innerHTML = "<input class = 'CustomerList" + index + "_Phone' name = 'CustomerList[" + index + "].Phone' value = '" + Phone + "' />";
+                            var Cell1 = row.insertCell(3);
+                            Cell1.innerHTML = "<input class ='CustomerList" + index + "_Mail'  name = 'CustomerList[" + index + "].Mail' value = '" + Mail + "' />";
+                            var Cell1 = row.insertCell(4);
+                            Cell1.innerHTML = "<input class = 'CustomerList" + index + "_Address' name = 'CustomerList[" + index + "].Address' value = '" + Address + "' />";
+                            var Cell1 = row.insertCell(5);
+                            Cell1.innerHTML = "<input class = 'CustomerList" + index + "_Sex'  name = 'CustomerList[" + index + "].Sex' value = '" + Sex + "' />";
+                            var Cell1 = row.insertCell(6);
+                            Cell1.innerHTML = "<input class= 'CustomerList" + index + "_NationalityID' name = 'CustomerList[" + index + "].NationalityID' value = '" + NationalityID + "' />";
+                            var Cell1 = row.insertCell(7);
+                            Cell1.innerHTML = "<input class =  'CustomerList" + index + "_Company'  name = 'CustomerList[" + index + "].Company' value = '" + Company + "' />";
+                            var Cell1 = row.insertCell(8);
+                            Cell1.innerHTML = "<input class =  'CustomerList" + index + "_CustomerID'  name = 'CustomerList[" + index + "].CustomerID' value = '" + CustomerID + "' />";
+
+                            var html = "<tr>";
+                            html += "<td><a href = 'javascript:showDialogEdit(" + index + ")' >" + Name + "</a></td>";
+                            html += "<td>" + Phone + "</td>";
+                            html += "<td>" + IDCard + "</td>";
+                            html += "<td>" + Mail + "</td>";
+                            html += "<td><input name = 'selectedCus' value = " + index + " type ='radio'/></td>";
+                            html += "<td><a href = '#' onclick ='javascript:removeCus(" + index + ");' >xóa</a></td>";
+                            jQuery(".custommer_list table").append(html);
+
+                            if (jQuery("input[name='selectedCus']").length == 1) {
+                                jQuery("input[name='selectedCus']").attr("checked", "checked");
+
+                            };
+
+                            jQuery("#myModal").modal("hide");
+                            alert("Thêm thành công khách hàng");
+                            resetValue();
+                        } else {
+                            var tablelist = document.getElementById("cus_list");
+                            var rowx = tablelist.row;
+                            console.log(tablelist);
+                            jQuery("#listCus .CustomerList" + index + "_IDCard").val(IDCard);
+                            jQuery("#listCus .CustomerList" + index + "_Name").val(Name);
+                            jQuery("#listCus .CustomerList" + index + "_Phone").val(Phone);
+                            jQuery("#listCus .CustomerList" + index + "_Mail").val(Mail);
+                            jQuery("#listCus .CustomerList" + index + "_Address").val(Address);
+                            jQuery("#listCus .CustomerList" + index + "_Sex").val(Sex);
+                            jQuery("#listCus .CustomerList" + index + "_NationalityID").val(NationalityID);
+                            jQuery("#listCus .CustomerList" + index + "_Company").val(Company);
+                            jQuery("#listCus .CustomerList" + index + "_CustomerID").val(CustomerID);
+
+                            jQuery("#myModal").modal("hide");
+                            alert("Sửa thành công khách hàng");
+                            resetValue();
+                        }
+                    }
+                }
+                function resetValue() {
+                    jQuery(".modal-body .index").val("");
+                    jQuery(".modal-body #Customer_IDCard").val("");
+                    jQuery(".modal-body #Customer_Name").val("");
+                    jQuery(".modal-body #Customer_Phone").val("");
+                    jQuery(".modal-body #Customer_Mail").val("");
+                    jQuery(".modal-body #Customer_Address").val("");
+                    jQuery(".modal-body #Customer_Sex").val("");
+                    jQuery(".modal-body #NationalityID").val("");
+                    jQuery(".modal-body #Customer_Company").val("");
+                    jQuery(".modal-body #Customer_CustomerID").val("");
+                }
+
+                function showDialogEdit(index) {
+                    var IDCard = jQuery("#listCus .CustomerList" + index + "_IDCard").val();
+                    var Name = jQuery("#listCus .CustomerList" + index + "_Name").val();
+                    var Phone = jQuery("#listCus .CustomerList" + index + "_Phone").val();
+                    var Mail = jQuery("#listCus .CustomerList" + index + "_Mail").val();
+                    var Address = jQuery("#listCus .CustomerList" + index + "_Address").val();
+                    var Sex = jQuery("#listCus .CustomerList" + index + "_Sex").val();
+                    var NationalityID = jQuery("#listCus .CustomerList" + index + "_NationalityID").val();
+                    var Company = jQuery("#listCus .CustomerList" + index + "_Company").val();
+                    var CustomerID = jQuery("#listCus .CustomerList" + index + "_CustomerID").val();
+                    jQuery(".modal-body .index").val(index);
+                    jQuery(".modal-body #Customer_IDCard").val(IDCard);
+                    jQuery(".modal-body #Customer_Name").val(Name);
+                    jQuery(".modal-body #Customer_Phone").val(Phone);
+                    jQuery(".modal-body #Customer_Mail").val(Mail);
+                    jQuery(".modal-body #Customer_Address").val(Address);
+                    jQuery(".modal-body #Customer_Sex").val(Sex);
+                    jQuery(".modal-body #NationalityID").val(NationalityID);
+                    jQuery(".modal-body #Customer_Company").val(Company);
+                    jQuery(".modal-body #Customer_CustomerID").val(CustomerID);
+                    $('#myModal').modal('show');
+                }
+                function addCus() {
+                    jQuery(".loading").fadeIn();
+                    var ids = "";
+                    jQuery("#ListSearch input[type='checkbox']:checked").each(function (el) {
+                        ids += (jQuery(this).val() + ",");
+                    })
+                    var index = jQuery("#listCus > tbody > tr:last").index() + 1;
+                    jQuery.ajax({
+                        url: "../Customer/SearchAdd?ids=" + ids + "&index=" + index,
+                        success: function (result) {
+                            jQuery("#listCus").append(result);
+                        }
+                    })
+                    jQuery.ajax({
+                        url: "../Customer/SearchAddShow?ids=" + ids + "&index=" + index,
+                        success: function (result) {
+                            jQuery("#cus_list table").append(result);
+                            if (jQuery("input[name='selectedCus']:checked").length == 0 && jQuery("input[name='selectedCus']").length >= 1) {
+                                jQuery("input[name='selectedCus']").each(function () {
+                                    if (jQuery(this).val() == '0') {
+                                        jQuery(this).attr("checked", "checked");
+                                    }
+                                });
+                            };
+                            jQuery(".loading").fadeOut();
+                        }
+
+                    })
+
+                    jQuery("#SearchCustomer").modal("hide");
+                    alert("Thêm thành công khách hàng");
+                }
+                jQuery(document).ready(function () {
+                    jQuery("input").focus(function () {
+                        if (jQuery(this).hasClass("error")) {
+                            jQuery(this).removeClass("error");
+                        }
+                    });
+                    jQuery("select").focus(function () {
+                        if (jQuery(this).hasClass("error")) {
+                            jQuery(this).removeClass("error");
+                        }
+                    });
+
+                    jQuery("input[name ='selectedCus']").each(function () {
+                        if (jQuery(this).val() == '@Model.selectedCus') {
+                jQuery(this).attr("checked", "checked");
+            }
+        })
+        jQuery("#Customer_Sex").attr("disabled", "disabled");
+        jQuery("#NationalityID").attr("disabled", "disabled");
+
+    })
+        function removeCus(index) {
+
+            var form = document.forms[1];
+            form.action = '/Checkin/RemoveCustomer';
+            form.remove.value = index;
+            form.submit();
+        }
+            </script>
+        </div>
+    </div>
+</div>

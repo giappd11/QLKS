@@ -1,0 +1,17 @@
+﻿@model QLKS.Models.Amenity
+
+ 
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => Model.AmenityName)
+            @Html.HiddenFor(modelItem => Model.AmenityID)
+        </td>
+        <td>
+             <input name ="soLuong" value ="1" type ="number"/> 
+        </td>
+        <td>
+             @Html.DisplayFor(modelItem => Model.Price)
+            @Html.HiddenFor(modelItem => Model.Price)
+        </td>
+         
+    </tr> 

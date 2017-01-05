@@ -1,0 +1,93 @@
+﻿@model IEnumerable<QLKS.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UsersID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Birth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NativeCountry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.systemRolle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.resourceRolle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservationRolle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.reportRolle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pass)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsersID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Birth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NativeCountry)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sex)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.systemRolle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.resourceRolle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReservationRolle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.reportRolle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pass)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

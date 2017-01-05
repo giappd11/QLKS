@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5256107f9aab4f84a39dd5e103486c30" Name="Diagram1" ZoomLevel="50">
+        <EntityTypeShape EntityType="QLKSModel.Amenity" Width="1.5" PointX="9" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.CheckIn" Width="1.5" PointX="6" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.checkin_Custommer" Width="1.5" PointX="3.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.CONFIGCOMP" Width="1.5" PointX="8.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.Customer" Width="1.5" PointX="0.625" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.Invoice" Width="1.5" PointX="8.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.ListRoom" Width="1.5" PointX="6.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.Nationality" Width="1.5" PointX="0.625" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.RevervationRoomType" Width="2.125" PointX="3.875" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.Revervation" Width="1.5" PointX="0.75" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.Room" Width="1.5" PointX="3.875" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.RoomType" Width="1.5" PointX="0.625" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.RoomType_Amenity" Width="1.5" PointX="6.375" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.RoomType_ServiceFix" Width="1.5" PointX="6.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.ServiceFix" Width="1.5" PointX="3.625" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.User" Width="1.5" PointX="8.875" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="QLKSModel.FK_Equipment_Amenity" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="QLKSModel.FK_checkin_Custommer_CheckIn" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKSModel.FK_Invoice_CheckIn" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKSModel.FK_ListRooms_CheckIn" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKSModel.FK_checkin_Custommer_Custommer" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKSModel.FK_Customers_Nationality" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKSModel.FK_Revervations_Customers" ManuallyRouted="true" >
+          <ConnectorPoint PointX="2.125" PointY="8.9413931554097488" />
+          <ConnectorPoint PointX="2.1937082717072212" PointY="8.7233148765691038" />
+          <ConnectorPoint PointX="2.2437917282927784" PointY="8.5643512796224446" />
+          <ConnectorPoint PointX="2.5" PointY="7.7511528461538468" />
+          <ConnectorPoint PointX="2.5" PointY="3.9417936197916656" />
+          <ConnectorPoint PointX="2.625" PointY="3.9417936197916656" />
+          <ConnectorPoint PointX="2.25" PointY="2.2004007513514807" />
+        </AssociationConnector>
+        <AssociationConnector Association="QLKSModel.FK_ListRooms_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKSModel.FK_Revervation_Revervations" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKSModel.FK_Revervation_RoomType" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKSModel.FK_Room_RoomType" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKSModel.FK_Equipment_RoomType" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKSModel.FK_RoomType_ServiceFix" ManuallyRouted="true" >
+          <ConnectorPoint PointX="1.375" PointY="5" />
+          <ConnectorPoint PointX="1.375" PointY="3.8167936197916656" />
+          <ConnectorPoint PointX="2.514748559414977" PointY="3.8167936197916652" />
+          <ConnectorPoint PointX="2.681415226081644" PointY="3.8167936197916656" />
+          <ConnectorPoint PointX="3.375" PointY="3.8167936197916656" />
+          <ConnectorPoint PointX="3.375" PointY="32.122275656467018" />
+          <ConnectorPoint PointX="5.3356374039510346" PointY="12.078090126593741" />
+          <ConnectorPoint PointX="5.3518625960489663" PointY="11.912215110635453" />
+          <ConnectorPoint PointX="6.25" PointY="2.7302864583333335" />
+        </AssociationConnector>
+        <AssociationConnector Association="QLKSModel.FK_ServiceFix_RoomType" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QLKSModel.ReservationsRoom" Width="2.375" PointX="8.625" PointY="14.25" />
+        <AssociationConnector Association="QLKSModel.FK_ReservationsRooms_Room" />
+        <AssociationConnector Association="QLKSModel.FK_ReservationsRooms_Reservation" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

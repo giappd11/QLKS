@@ -1,0 +1,106 @@
+﻿@model QLKS.Models.ListRoomHome
+
+
+@{
+    Layout = "../Shared/_LayoutPage.cshtml";
+    ViewBag.Title = "Index";
+    int i = 1;
+}
+<div class="col-md-12">
+    <div class="portlet light form-fit ">
+        <div class="portlet-body form">
+            <article class="artical_top">
+                <div class="room_status">
+                    <div class="room active">
+                        <span class="count">@ViewBag.rommsActive</span>
+                        <span class="">Phòng trống</span>
+                    </div>
+                    <div class="room deactive">
+                        <span class="count">@ViewBag.rommsDeactive</span>
+                        <span class="">Phòng có khách</span>
+                    </div>
+                    <div class="room wait">
+                        <span class="count">@ViewBag.rommsWait</span>
+                        <span class="">Phòng chờ khách</span>
+                    </div>
+                    <div class="room expery">
+                        <span class="count">@ViewBag.rommsExpery</span>
+                        <span class="">Phòng quá hạn</span>
+                    </div>
+                    <div class="room repair">
+                        <span class="count">@ViewBag.rommsRepair</span>
+                        <span class="">Phòng sửa chữa</span>
+                    </div>
+                </div>
+            </article>
+            <article class="floors">
+                <div class="floor">
+                    @foreach (var item in Model.listRoom)
+                    {
+                        if (item.Floor == i)
+                        {
+                            i++; 
+                        @Html.Raw(" </div><div class='floor'>")
+                        <div class="flor_name">
+                            <span>Tầng @item.Floor</span>
+                        </div>
+                        } 
+
+                        <div class="flor_rooms">
+                            <div class = "room status_@item.RoomStatus">
+
+                                <span>
+                                    @if (item.RoomStatus == 1)
+                                    {
+                                        <form action ="/Checkin/Index" method ="post">
+                                            <select name ="ListRooms" style ="display: none;">
+                                                <option value ="@item.RoomNoID" selected ="selected"></option>
+                                            </select>
+                                            <input type ="submit" value ="@Html.DisplayFor(modelItem => item.Position)"/> 
+                                        </form>
+                                    }
+                                    else if (item.RoomStatus == 2)
+                                    { 
+                                        <form action ="/Checkin/ChooseRoom" method ="post"> 
+                                            <input type="hidden" name ="RoomsId" value ="@item.RoomNoID" />
+                                            <input type ="submit" value ="@Html.DisplayFor(modelItem => item.Position)"/> 
+                                        </form> 
+                                    }
+                                    else if (item.RoomStatus == 3)
+                                    {
+                                        <a href ="/Checkin/Index?ListRooms=@item.RoomNoID">@Html.DisplayFor(modelItem => item.Position)</a>
+                                    }
+                                    else if (item.RoomStatus == 4)
+                                    {
+                                        <a href ="/Checkin/Index?ListRooms=@item.RoomNoID">@Html.DisplayFor(modelItem => item.Position)</a>
+                                    }
+                                    else if (item.RoomStatus == 5)
+                                    {
+                                        <a href ="/Checkin/Index?ListRooms=@item.RoomNoID">@Html.DisplayFor(modelItem => item.Position)</a>
+                                    }
+                                </span>
+                                @foreach (var item1 in Model.listCheckIn)
+                                {
+                                    if (item1.room.Position == item.Position)
+                                    {
+                                    <div class="info">
+                                        @Html.DisplayFor(model1 => item1.customer.Name)<br />
+                                        @{
+                                        DateTime datein = (DateTime)item1.checkIn.DateIn;
+                                        DateTime dateout = (DateTime)item1.checkIn.DateOut;
+                                        }
+                                        Ngày nhận phòng: @datein.ToShortDateString()<br />
+                                        Dự kiến trả phòng: @dateout.ToShortDateString()<br />
+                                    </div>
+                                    }
+                                }
+
+
+                            </div>
+                        </div> 
+                    }
+                </div>
+            </article>
+        </div>
+    </div>
+</div>

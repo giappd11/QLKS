@@ -1,0 +1,42 @@
+﻿@model QLKS.Models.ChooseDate
+@{
+    ViewBag.Title = "Chọn ngày nhận phòng";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="portlet light   ">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-pin font-red"></i>
+                <span class="caption-subject font-red sbold uppercase">Chọn ngày</span>
+            </div>
+        </div>
+        <div class="portlet-body">
+            @using (Html.BeginForm( ))
+            {
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.DateIn)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.DateIn)
+                        @Html.ValidationMessageFor(model => model.DateIn)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.DateOut)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.DateOut)
+                        @Html.ValidationMessageFor(model => model.DateOut)
+                    </div>
+                </div>
+                <div class ="box_button">
+                    <button>Tiếp theo</button> 
+                </div>
+            }
+        </div>
+    </div>
+</div>

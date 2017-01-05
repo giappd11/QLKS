@@ -1,0 +1,111 @@
+﻿@model QLKS.Models.User
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>User</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UsersID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UsersID)
+            @Html.ValidationMessageFor(model => model.UsersID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Phone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Phone)
+            @Html.ValidationMessageFor(model => model.Phone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Birth)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Birth)
+            @Html.ValidationMessageFor(model => model.Birth)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NativeCountry)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NativeCountry)
+            @Html.ValidationMessageFor(model => model.NativeCountry)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sex)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sex)
+            @Html.ValidationMessageFor(model => model.Sex)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.systemRolle)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.systemRolle)
+            @Html.ValidationMessageFor(model => model.systemRolle)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.resourceRolle)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.resourceRolle)
+            @Html.ValidationMessageFor(model => model.resourceRolle)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReservationRolle)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ReservationRolle)
+            @Html.ValidationMessageFor(model => model.ReservationRolle)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.reportRolle)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.reportRolle)
+            @Html.ValidationMessageFor(model => model.reportRolle)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Pass)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Pass)
+            @Html.ValidationMessageFor(model => model.Pass)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

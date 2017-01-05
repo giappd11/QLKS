@@ -1,0 +1,31 @@
+﻿@model QLKS.Models.Nationality
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Nationality</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NationalityName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NationalityName)
+            @Html.ValidationMessageFor(model => model.NationalityName)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

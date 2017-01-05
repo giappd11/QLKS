@@ -1,0 +1,70 @@
+﻿@model QLKS.Models.Room
+
+@{
+    Layout = "../Shared/_LayoutPage.cshtml";
+    ViewBag.Title = "Sửa phòng";
+}
+
+<div class="col-md-12">
+    <div class="portlet light   ">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-pin font-red"></i>
+                <span class="caption-subject font-red sbold uppercase">Sửa Phòng</span>
+            </div>
+
+        </div>
+        <div class="portlet-body">
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true)
+                
+                @Html.HiddenFor(model => model.RoomStatus) 
+                @Html.HiddenFor(model => model.RoomNoID)
+                
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.Floor)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.Floor)
+                        @Html.ValidationMessageFor(model => model.Floor)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.Position)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.Position)
+                        @Html.ValidationMessageFor(model => model.Position)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.RoomTypeID, "Loại phòng")
+                    </div>
+                    <div class="col-md-9">
+                        @Html.DropDownList("RoomTypeID", String.Empty)
+                        @Html.ValidationMessageFor(model => model.RoomTypeID)
+                    </div>
+                </div>
+                     
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.LabelFor(model => model.RoomPhone)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.RoomPhone)
+                        @Html.ValidationMessageFor(model => model.RoomPhone)
+                    </div>
+                </div>
+                <div class="box_button">
+                    @Html.ActionLink("Trở về", "Index")
+                    <button type="submit" class="btn" value="Sửa">Lưu</button>
+                </div> 
+            }
+
+        </div>
+    </div>
+</div>

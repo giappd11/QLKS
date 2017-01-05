@@ -1,0 +1,62 @@
+﻿@model IEnumerable<QLKS.Models.Customer>
+
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDCard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mail)
+        </th>
+        <th></th>
+    </tr>
+    @if (Model.Count() >= 1)
+    {
+        foreach (var item in Model)
+        {
+        <tr>
+            <td  style ="width: 22.5%">
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td style ="width: 22.5%">
+                @Html.DisplayFor(modelItem => item.IDCard)
+            </td>
+            
+            <td  style ="width: 22.5%">
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td style ="width: 22.5%">
+                @Html.DisplayFor(modelItem => item.Mail)
+            </td>
+            <td style ="width: 10%"> 
+                    @if (ViewBag.showOne == 1){ 
+                        @Html.RadioButton("AddCustomer",  item.CustomerID )
+                    }else {
+                        @Html.CheckBox("AddCustomer", new { value = item.CustomerID })
+                    }
+            </td>
+        </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td colspan="5">Không tìm thấy khách hàng</td>
+        </tr>    
+    }
+
+</table>
+@if (Model.Count() >= 1)
+{
+    <div class="box_button">
+        <button class="btn" onclick="javascript:addCus()">Thêm khách hàng</button>
+    </div>
+}
+

@@ -1,0 +1,72 @@
+﻿@model QLKS.Models.ViewRoomType
+@{
+    Layout = "../Shared/_LayoutPage.cshtml";
+    ViewBag.Title = "Index";
+}
+<div class="col-md-12">
+    <div class="portlet light   ">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-pin font-red"></i>
+                <span class="caption-subject font-red sbold uppercase">Loại phòng</span>
+            </div>
+
+        </div>
+        <div class="portlet-body">
+            @Html.Partial("Create", Model.Create)
+        </div>
+
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="portlet light   ">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-pin font-red"></i>
+                <span class="caption-subject font-red sbold uppercase">Danh sách loại phòng</span>
+            </div>
+
+        </div>
+        <div class="portlet-body">
+            <table id="dataTables" class="table table-striped table-hover scroll">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Create.RoomTypeName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Create.Price)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Create.Depcriptions)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.List)
+                    {
+                        <tr>
+                            <td style="width: 30%">
+                                @Html.DisplayFor(modelItem => item.RoomTypeName)
+                            </td>
+                            <td style="width: 30%">
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </td>
+                            <td style="width: 30%">
+                                @Html.DisplayFor(modelItem => item.Depcriptions)
+                            </td>
+                            <td style="width: 10%; min-width: 200px">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.RoomTypeID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.RoomTypeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.RoomTypeID })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+</div>

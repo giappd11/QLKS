@@ -1,0 +1,73 @@
+﻿@model QLKS.Models.Room
+
+@{
+    Layout = "../Shared/_LayoutPage.cshtml";
+    ViewBag.Title = "Thông tin phòng";
+}
+
+<div class="col-md-12">
+    <div class="portlet light   ">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-pin font-red"></i>
+                <span class="caption-subject font-red sbold uppercase">Phòng</span>
+            </div>
+
+        </div>
+        <div class="portlet-body">
+            <div class="form-group">
+                <div class="control-label col-md-3">
+                    @Html.DisplayNameFor(model => model.RoomNoID)
+                </div>
+                <div class="col-md-9">
+                    @Html.DisplayFor(model => model.RoomNoID)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="control-label col-md-3">
+                    @Html.DisplayNameFor(model => model.Floor)
+                </div>
+                <div class="col-md-9">
+                    @Html.DisplayFor(model => model.Floor)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="control-label col-md-3">
+                    @Html.DisplayNameFor(model => model.Position)
+                </div>
+
+                <div class="col-md-9">
+                    @Html.DisplayFor(model => model.Position)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="control-label col-md-3">
+                    @Html.DisplayNameFor(model => model.RoomType.RoomTypeName)
+                </div>
+                <div class="col-md-9">
+                    @Html.DisplayFor(model => model.RoomType.RoomTypeName)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="control-label col-md-3">
+                    @Html.DisplayNameFor(model => model.RoomStatus)
+                </div>
+                <div class="col-md-9">
+                    @Html.DisplayFor(model => model.RoomStatus)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="control-label col-md-3">
+                    @Html.DisplayNameFor(model => model.RoomPhone)
+                </div>
+                <div class="col-md-9">
+                    @Html.DisplayFor(model => model.RoomPhone)
+                </div>
+            </div>
+            <div class="box_button">
+                @Html.ActionLink("Sửa", "Edit", new { id = Model.RoomNoID }) |
+                @Html.ActionLink("Trở về", "Index")
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,605 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="GetNextAmenitySeq" ReturnType="Collection(Int64)" />
+    <FunctionImport Name="GetNextRoomSeq" ReturnType="Collection(Int64)" />
+    <FunctionImport Name="GetNextRoomTypeSeq" ReturnType="Collection(Int64)" />
+    <EntitySet Name="Amenities" EntityType="Model.Amenity" />
+    <EntitySet Name="CheckIns" EntityType="Model.CheckIn" />
+    <EntitySet Name="CheckIn_Amenity" EntityType="Model.CheckIn_Amenity" />
+    <EntitySet Name="checkin_Custommer" EntityType="Model.checkin_Custommer" />
+    <EntitySet Name="CheckIn_Service" EntityType="Model.CheckIn_Service" />
+    <EntitySet Name="CONFIGCOMPs" EntityType="Model.CONFIGCOMP" />
+    <EntitySet Name="Customers" EntityType="Model.Customer" />
+    <EntitySet Name="Groups" EntityType="Model.Group" />
+    <EntitySet Name="Invoices" EntityType="Model.Invoice" />
+    <EntitySet Name="ListRooms" EntityType="Model.ListRoom" />
+    <EntitySet Name="Nationalities" EntityType="Model.Nationality" />
+    <EntitySet Name="RevervationRoomTypes" EntityType="Model.RevervationRoomType" />
+    <EntitySet Name="Revervations" EntityType="Model.Revervation" />
+    <EntitySet Name="Rooms" EntityType="Model.Room" />
+    <EntitySet Name="RoomTypes" EntityType="Model.RoomType" />
+    <EntitySet Name="RoomType_Amenity" EntityType="Model.RoomType_Amenity" />
+    <EntitySet Name="RoomType_ServiceFix" EntityType="Model.RoomType_ServiceFix" />
+    <EntitySet Name="Services" EntityType="Model.Service" />
+    <EntitySet Name="ServiceFixes" EntityType="Model.ServiceFix" />
+    <EntitySet Name="UseAmenities" EntityType="Model.UseAmenity" />
+    <EntitySet Name="Users" EntityType="Model.User" />
+    <AssociationSet Name="FK_CheckIn_Amenity_Amemity" Association="Model.FK_CheckIn_Amenity_Amemity">
+      <End Role="Amenity" EntitySet="Amenities" />
+      <End Role="CheckIn_Amenity" EntitySet="CheckIn_Amenity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Equipment_Amenity" Association="Model.FK_Equipment_Amenity">
+      <End Role="Amenity" EntitySet="Amenities" />
+      <End Role="RoomType_Amenity" EntitySet="RoomType_Amenity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UseAmenity_Amenity" Association="Model.FK_UseAmenity_Amenity">
+      <End Role="Amenity" EntitySet="Amenities" />
+      <End Role="UseAmenity" EntitySet="UseAmenities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckIn_Amenity_CheckIn" Association="Model.FK_CheckIn_Amenity_CheckIn">
+      <End Role="CheckIn" EntitySet="CheckIns" />
+      <End Role="CheckIn_Amenity" EntitySet="CheckIn_Amenity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_checkin_Custommer_CheckIn" Association="Model.FK_checkin_Custommer_CheckIn">
+      <End Role="CheckIn" EntitySet="CheckIns" />
+      <End Role="checkin_Custommer" EntitySet="checkin_Custommer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckIn_Service_CheckIn" Association="Model.FK_CheckIn_Service_CheckIn">
+      <End Role="CheckIn" EntitySet="CheckIns" />
+      <End Role="CheckIn_Service" EntitySet="CheckIn_Service" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Invoice_CheckIn" Association="Model.FK_Invoice_CheckIn">
+      <End Role="CheckIn" EntitySet="CheckIns" />
+      <End Role="Invoice" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListRooms_CheckIn" Association="Model.FK_ListRooms_CheckIn">
+      <End Role="CheckIn" EntitySet="CheckIns" />
+      <End Role="ListRoom" EntitySet="ListRooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_checkin_Custommer_Custommer" Association="Model.FK_checkin_Custommer_Custommer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="checkin_Custommer" EntitySet="checkin_Custommer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckIn_Service_Service" Association="Model.FK_CheckIn_Service_Service">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="CheckIn_Service" EntitySet="CheckIn_Service" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customers_Nationality" Association="Model.FK_Customers_Nationality">
+      <End Role="Nationality" EntitySet="Nationalities" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Groups_Customers" Association="Model.FK_Groups_Customers">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Group" EntitySet="Groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Revervations_Customers" Association="Model.FK_Revervations_Customers">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Revervation" EntitySet="Revervations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListRooms_Room" Association="Model.FK_ListRooms_Room">
+      <End Role="Room" EntitySet="Rooms" />
+      <End Role="ListRoom" EntitySet="ListRooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Revervation_Revervations" Association="Model.FK_Revervation_Revervations">
+      <End Role="Revervation" EntitySet="Revervations" />
+      <End Role="RevervationRoomType" EntitySet="RevervationRoomTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Revervation_RoomType" Association="Model.FK_Revervation_RoomType">
+      <End Role="RoomType" EntitySet="RoomTypes" />
+      <End Role="RevervationRoomType" EntitySet="RevervationRoomTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Room_RoomType" Association="Model.FK_Room_RoomType">
+      <End Role="RoomType" EntitySet="RoomTypes" />
+      <End Role="Room" EntitySet="Rooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Equipment_RoomType" Association="Model.FK_Equipment_RoomType">
+      <End Role="RoomType" EntitySet="RoomTypes" />
+      <End Role="RoomType_Amenity" EntitySet="RoomType_Amenity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoomType_ServiceFix" Association="Model.FK_RoomType_ServiceFix">
+      <End Role="RoomType" EntitySet="RoomTypes" />
+      <End Role="RoomType_ServiceFix" EntitySet="RoomType_ServiceFix" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceFix_RoomType" Association="Model.FK_ServiceFix_RoomType">
+      <End Role="ServiceFix" EntitySet="ServiceFixes" />
+      <End Role="RoomType_ServiceFix" EntitySet="RoomType_ServiceFix" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Amenity">
+    <Key>
+      <PropertyRef Name="AmenityID" />
+    </Key>
+    <Property Type="String" Name="AmenityID" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AmenityName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Price" Precision="19" Scale="4" />
+    <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AmenityUnit" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CheckIn_Amenity" Relationship="Model.FK_CheckIn_Amenity_Amemity" FromRole="Amenity" ToRole="CheckIn_Amenity" />
+    <NavigationProperty Name="RoomType_Amenity" Relationship="Model.FK_Equipment_Amenity" FromRole="Amenity" ToRole="RoomType_Amenity" />
+    <NavigationProperty Name="UseAmenity" Relationship="Model.FK_UseAmenity_Amenity" FromRole="Amenity" ToRole="UseAmenity" />
+  </EntityType>
+  <EntityType Name="CheckIn">
+    <Key>
+      <PropertyRef Name="CheckInID" />
+    </Key>
+    <Property Type="Int32" Name="CheckInID" Nullable="false" />
+    <Property Type="Int32" Name="GroupID" />
+    <Property Type="DateTime" Name="DateIn" Precision="0" />
+    <Property Type="Int32" Name="Discount" />
+    <Property Type="Decimal" Name="Tax" Precision="19" Scale="4" />
+    <Property Type="DateTime" Name="DateOut" Precision="0" />
+    <Property Type="Int32" Name="OutofTime" />
+    <Property Type="String" Name="Comment" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="RoomCharge" Precision="19" Scale="4" />
+    <Property Type="Boolean" Name="CheckInStatus" />
+    <NavigationProperty Name="CheckIn_Amenity" Relationship="Model.FK_CheckIn_Amenity_CheckIn" FromRole="CheckIn" ToRole="CheckIn_Amenity" />
+    <NavigationProperty Name="checkin_Custommer" Relationship="Model.FK_checkin_Custommer_CheckIn" FromRole="CheckIn" ToRole="checkin_Custommer" />
+    <NavigationProperty Name="CheckIn_Service" Relationship="Model.FK_CheckIn_Service_CheckIn" FromRole="CheckIn" ToRole="CheckIn_Service" />
+    <NavigationProperty Name="Invoices" Relationship="Model.FK_Invoice_CheckIn" FromRole="CheckIn" ToRole="Invoice" />
+    <NavigationProperty Name="ListRooms" Relationship="Model.FK_ListRooms_CheckIn" FromRole="CheckIn" ToRole="ListRoom" />
+  </EntityType>
+  <EntityType Name="CheckIn_Amenity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="CheckInID" />
+    <Property Type="String" Name="AmenityID" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Amount" Precision="19" Scale="4" />
+    <NavigationProperty Name="Amenity" Relationship="Model.FK_CheckIn_Amenity_Amemity" FromRole="CheckIn_Amenity" ToRole="Amenity" />
+    <NavigationProperty Name="CheckIn" Relationship="Model.FK_CheckIn_Amenity_CheckIn" FromRole="CheckIn_Amenity" ToRole="CheckIn" />
+  </EntityType>
+  <EntityType Name="checkin_Custommer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="CustomerID" />
+    <Property Type="Int32" Name="CheckInID" />
+    <Property Type="Boolean" Name="roomMaster" />
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <NavigationProperty Name="CheckIn" Relationship="Model.FK_checkin_Custommer_CheckIn" FromRole="checkin_Custommer" ToRole="CheckIn" />
+    <NavigationProperty Name="Customer" Relationship="Model.FK_checkin_Custommer_Custommer" FromRole="checkin_Custommer" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="CheckIn_Service">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="CheckInID" />
+    <Property Type="Int32" Name="ServiceID" />
+    <Property Type="Decimal" Name="Amount" Precision="19" Scale="4" />
+    <NavigationProperty Name="CheckIn" Relationship="Model.FK_CheckIn_Service_CheckIn" FromRole="CheckIn_Service" ToRole="CheckIn" />
+    <NavigationProperty Name="Service" Relationship="Model.FK_CheckIn_Service_Service" FromRole="CheckIn_Service" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="CONFIGCOMP">
+    <Key>
+      <PropertyRef Name="CompanyName" />
+    </Key>
+    <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CompanyAdd" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TaxCode" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="AccountNo" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Phone" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Type="Int32" Name="Fax" />
+    <Property Type="Int32" Name="FloorNo" />
+    <Property Type="Int32" Name="PositionNo" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="String" Name="IDCard" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Mail" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Address" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Sex" />
+    <Property Type="Int32" Name="NationalityID" />
+    <Property Type="String" Name="Company" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="checkin_Custommer" Relationship="Model.FK_checkin_Custommer_Custommer" FromRole="Customer" ToRole="checkin_Custommer" />
+    <NavigationProperty Name="Nationality" Relationship="Model.FK_Customers_Nationality" FromRole="Customer" ToRole="Nationality" />
+    <NavigationProperty Name="Groups" Relationship="Model.FK_Groups_Customers" FromRole="Customer" ToRole="Group" />
+    <NavigationProperty Name="Revervations" Relationship="Model.FK_Revervations_Customers" FromRole="Customer" ToRole="Revervation" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="GroupID" />
+    </Key>
+    <Property Type="Int32" Name="GroupID" Nullable="false" />
+    <Property Type="String" Name="GroupName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="CustomerID" />
+    <Property Type="DateTime" Name="DateIn" Precision="3" />
+    <Property Type="DateTime" Name="DateOut" Precision="3" />
+    <Property Type="Int32" Name="Status" />
+    <NavigationProperty Name="Customer" Relationship="Model.FK_Groups_Customers" FromRole="Group" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="InvoiceID" />
+    </Key>
+    <Property Type="Int32" Name="InvoiceID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="InvoiceDate" Precision="0" />
+    <Property Type="Int32" Name="CheckInID" />
+    <Property Type="Decimal" Name="Total" Precision="19" Scale="4" />
+    <NavigationProperty Name="CheckIn" Relationship="Model.FK_Invoice_CheckIn" FromRole="Invoice" ToRole="CheckIn" />
+  </EntityType>
+  <EntityType Name="ListRoom">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="CheckInID" Nullable="false" />
+    <Property Type="String" Name="RoomID" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CheckIn" Relationship="Model.FK_ListRooms_CheckIn" FromRole="ListRoom" ToRole="CheckIn" />
+    <NavigationProperty Name="Room" Relationship="Model.FK_ListRooms_Room" FromRole="ListRoom" ToRole="Room" />
+  </EntityType>
+  <EntityType Name="Nationality">
+    <Key>
+      <PropertyRef Name="NationalityID" />
+    </Key>
+    <Property Type="Int32" Name="NationalityID" Nullable="false" />
+    <Property Type="String" Name="NationalityName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customers" Relationship="Model.FK_Customers_Nationality" FromRole="Nationality" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="RevervationRoomType">
+    <Key>
+      <PropertyRef Name="ReservationID" />
+    </Key>
+    <Property Type="Int32" Name="ReservationID" Nullable="false" />
+    <Property Type="String" Name="RoomTypeID" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Numb" />
+    <NavigationProperty Name="Revervation" Relationship="Model.FK_Revervation_Revervations" FromRole="RevervationRoomType" ToRole="Revervation" />
+    <NavigationProperty Name="RoomType" Relationship="Model.FK_Revervation_RoomType" FromRole="RevervationRoomType" ToRole="RoomType" />
+  </EntityType>
+  <EntityType Name="Revervation">
+    <Key>
+      <PropertyRef Name="ReservationID" />
+    </Key>
+    <Property Type="Int32" Name="ReservationID" Nullable="false" />
+    <Property Type="Boolean" Name="IsGroup" />
+    <Property Type="String" Name="GroupName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="CustomerID" />
+    <Property Type="Int32" Name="PeopleNumber" />
+    <Property Type="String" Name="ListRoom" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DateIn" Precision="3" />
+    <Property Type="DateTime" Name="DateOut" Precision="3" />
+    <Property Type="String" Name="Requests" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Status" />
+    <Property Type="DateTime" Name="BookingDate" Precision="3" />
+    <NavigationProperty Name="Customer" Relationship="Model.FK_Revervations_Customers" FromRole="Revervation" ToRole="Customer" />
+    <NavigationProperty Name="RevervationRoomType" Relationship="Model.FK_Revervation_Revervations" FromRole="Revervation" ToRole="RevervationRoomType" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="RoomNoID" />
+    </Key>
+    <Property Type="String" Name="RoomNoID" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Floor" />
+    <Property Type="Int32" Name="Position" />
+    <Property Type="String" Name="RoomTypeID" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="RoomStatus" />
+    <Property Type="String" Name="RoomPhone" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ListRooms" Relationship="Model.FK_ListRooms_Room" FromRole="Room" ToRole="ListRoom" />
+    <NavigationProperty Name="RoomType" Relationship="Model.FK_Room_RoomType" FromRole="Room" ToRole="RoomType" />
+  </EntityType>
+  <EntityType Name="RoomType">
+    <Key>
+      <PropertyRef Name="RoomTypeID" />
+    </Key>
+    <Property Type="String" Name="RoomTypeID" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RoomTypeName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Price" Precision="19" Scale="4" />
+    <Property Type="String" Name="Depcriptions" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RevervationRoomTypes" Relationship="Model.FK_Revervation_RoomType" FromRole="RoomType" ToRole="RevervationRoomType" />
+    <NavigationProperty Name="Rooms" Relationship="Model.FK_Room_RoomType" FromRole="RoomType" ToRole="Room" />
+    <NavigationProperty Name="RoomType_Amenity" Relationship="Model.FK_Equipment_RoomType" FromRole="RoomType" ToRole="RoomType_Amenity" />
+    <NavigationProperty Name="RoomType_ServiceFix" Relationship="Model.FK_RoomType_ServiceFix" FromRole="RoomType" ToRole="RoomType_ServiceFix" />
+  </EntityType>
+  <EntityType Name="RoomType_Amenity">
+    <Key>
+      <PropertyRef Name="AmenityID" />
+    </Key>
+    <Property Type="String" Name="AmenityID" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RoomTypeID" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Quantity" />
+    <NavigationProperty Name="Amenity" Relationship="Model.FK_Equipment_Amenity" FromRole="RoomType_Amenity" ToRole="Amenity" />
+    <NavigationProperty Name="RoomType" Relationship="Model.FK_Equipment_RoomType" FromRole="RoomType_Amenity" ToRole="RoomType" />
+  </EntityType>
+  <EntityType Name="RoomType_ServiceFix">
+    <Key>
+      <PropertyRef Name="ServiceFixID" />
+    </Key>
+    <Property Type="Int32" Name="ServiceFixID" Nullable="false" />
+    <Property Type="String" Name="RoomTypeID" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Quantity" />
+    <NavigationProperty Name="RoomType" Relationship="Model.FK_RoomType_ServiceFix" FromRole="RoomType_ServiceFix" ToRole="RoomType" />
+    <NavigationProperty Name="ServiceFix" Relationship="Model.FK_ServiceFix_RoomType" FromRole="RoomType_ServiceFix" ToRole="ServiceFix" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ServiceID" />
+    </Key>
+    <Property Type="Int32" Name="ServiceID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="String" Name="ServiceName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CheckIn_Service" Relationship="Model.FK_CheckIn_Service_Service" FromRole="Service" ToRole="CheckIn_Service" />
+  </EntityType>
+  <EntityType Name="ServiceFix">
+    <Key>
+      <PropertyRef Name="ServiceFixId" />
+    </Key>
+    <Property Type="Int32" Name="ServiceFixId" Nullable="false" />
+    <Property Type="String" Name="ServiceFixName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RoomType_ServiceFix" Relationship="Model.FK_ServiceFix_RoomType" FromRole="ServiceFix" ToRole="RoomType_ServiceFix" />
+  </EntityType>
+  <EntityType Name="UseAmenity">
+    <Key>
+      <PropertyRef Name="AmentityID" />
+    </Key>
+    <Property Type="String" Name="AmentityID" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="CheckInID" />
+    <Property Type="Int32" Name="NumberUse" />
+    <NavigationProperty Name="Amenity" Relationship="Model.FK_UseAmenity_Amenity" FromRole="UseAmenity" ToRole="Amenity" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UsersID" />
+    </Key>
+    <Property Type="String" Name="UsersID" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Birth" Precision="0" />
+    <Property Type="String" Name="NativeCountry" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Sex" />
+    <Property Type="Boolean" Name="systemRolle" />
+    <Property Type="Boolean" Name="resourceRolle" />
+    <Property Type="Boolean" Name="ReservationRolle" />
+    <Property Type="Boolean" Name="reportRolle" />
+    <Property Type="String" Name="Pass" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="login_id" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_CheckIn_Amenity_Amemity">
+    <End Type="Model.Amenity" Role="Amenity" Multiplicity="0..1" />
+    <End Type="Model.CheckIn_Amenity" Role="CheckIn_Amenity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Amenity">
+        <PropertyRef Name="AmenityID" />
+      </Principal>
+      <Dependent Role="CheckIn_Amenity">
+        <PropertyRef Name="AmenityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Equipment_Amenity">
+    <End Type="Model.Amenity" Role="Amenity" Multiplicity="1" />
+    <End Type="Model.RoomType_Amenity" Role="RoomType_Amenity" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Amenity">
+        <PropertyRef Name="AmenityID" />
+      </Principal>
+      <Dependent Role="RoomType_Amenity">
+        <PropertyRef Name="AmenityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UseAmenity_Amenity">
+    <End Type="Model.Amenity" Role="Amenity" Multiplicity="1" />
+    <End Type="Model.UseAmenity" Role="UseAmenity" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Amenity">
+        <PropertyRef Name="AmenityID" />
+      </Principal>
+      <Dependent Role="UseAmenity">
+        <PropertyRef Name="AmentityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CheckIn_Amenity_CheckIn">
+    <End Type="Model.CheckIn" Role="CheckIn" Multiplicity="0..1" />
+    <End Type="Model.CheckIn_Amenity" Role="CheckIn_Amenity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckIn">
+        <PropertyRef Name="CheckInID" />
+      </Principal>
+      <Dependent Role="CheckIn_Amenity">
+        <PropertyRef Name="CheckInID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_checkin_Custommer_CheckIn">
+    <End Type="Model.CheckIn" Role="CheckIn" Multiplicity="0..1" />
+    <End Type="Model.checkin_Custommer" Role="checkin_Custommer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckIn">
+        <PropertyRef Name="CheckInID" />
+      </Principal>
+      <Dependent Role="checkin_Custommer">
+        <PropertyRef Name="CheckInID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CheckIn_Service_CheckIn">
+    <End Type="Model.CheckIn" Role="CheckIn" Multiplicity="0..1" />
+    <End Type="Model.CheckIn_Service" Role="CheckIn_Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckIn">
+        <PropertyRef Name="CheckInID" />
+      </Principal>
+      <Dependent Role="CheckIn_Service">
+        <PropertyRef Name="CheckInID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Invoice_CheckIn">
+    <End Type="Model.CheckIn" Role="CheckIn" Multiplicity="0..1" />
+    <End Type="Model.Invoice" Role="Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckIn">
+        <PropertyRef Name="CheckInID" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="CheckInID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListRooms_CheckIn">
+    <End Type="Model.CheckIn" Role="CheckIn" Multiplicity="1" />
+    <End Type="Model.ListRoom" Role="ListRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckIn">
+        <PropertyRef Name="CheckInID" />
+      </Principal>
+      <Dependent Role="ListRoom">
+        <PropertyRef Name="CheckInID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_checkin_Custommer_Custommer">
+    <End Type="Model.Customer" Role="Customer" Multiplicity="0..1" />
+    <End Type="Model.checkin_Custommer" Role="checkin_Custommer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="checkin_Custommer">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CheckIn_Service_Service">
+    <End Type="Model.Service" Role="Service" Multiplicity="0..1" />
+    <End Type="Model.CheckIn_Service" Role="CheckIn_Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ServiceID" />
+      </Principal>
+      <Dependent Role="CheckIn_Service">
+        <PropertyRef Name="ServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customers_Nationality">
+    <End Type="Model.Nationality" Role="Nationality" Multiplicity="0..1" />
+    <End Type="Model.Customer" Role="Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nationality">
+        <PropertyRef Name="NationalityID" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="NationalityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Groups_Customers">
+    <End Type="Model.Customer" Role="Customer" Multiplicity="0..1" />
+    <End Type="Model.Group" Role="Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Group">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Revervations_Customers">
+    <End Type="Model.Customer" Role="Customer" Multiplicity="0..1" />
+    <End Type="Model.Revervation" Role="Revervation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Revervation">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListRooms_Room">
+    <End Type="Model.Room" Role="Room" Multiplicity="1" />
+    <End Type="Model.ListRoom" Role="ListRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="RoomNoID" />
+      </Principal>
+      <Dependent Role="ListRoom">
+        <PropertyRef Name="RoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Revervation_Revervations">
+    <End Type="Model.Revervation" Role="Revervation" Multiplicity="1" />
+    <End Type="Model.RevervationRoomType" Role="RevervationRoomType" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Revervation">
+        <PropertyRef Name="ReservationID" />
+      </Principal>
+      <Dependent Role="RevervationRoomType">
+        <PropertyRef Name="ReservationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Revervation_RoomType">
+    <End Type="Model.RoomType" Role="RoomType" Multiplicity="0..1" />
+    <End Type="Model.RevervationRoomType" Role="RevervationRoomType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomType">
+        <PropertyRef Name="RoomTypeID" />
+      </Principal>
+      <Dependent Role="RevervationRoomType">
+        <PropertyRef Name="RoomTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Room_RoomType">
+    <End Type="Model.RoomType" Role="RoomType" Multiplicity="0..1" />
+    <End Type="Model.Room" Role="Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomType">
+        <PropertyRef Name="RoomTypeID" />
+      </Principal>
+      <Dependent Role="Room">
+        <PropertyRef Name="RoomTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Equipment_RoomType">
+    <End Type="Model.RoomType" Role="RoomType" Multiplicity="0..1" />
+    <End Type="Model.RoomType_Amenity" Role="RoomType_Amenity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomType">
+        <PropertyRef Name="RoomTypeID" />
+      </Principal>
+      <Dependent Role="RoomType_Amenity">
+        <PropertyRef Name="RoomTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoomType_ServiceFix">
+    <End Type="Model.RoomType" Role="RoomType" Multiplicity="0..1" />
+    <End Type="Model.RoomType_ServiceFix" Role="RoomType_ServiceFix" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomType">
+        <PropertyRef Name="RoomTypeID" />
+      </Principal>
+      <Dependent Role="RoomType_ServiceFix">
+        <PropertyRef Name="RoomTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceFix_RoomType">
+    <End Type="Model.ServiceFix" Role="ServiceFix" Multiplicity="1" />
+    <End Type="Model.RoomType_ServiceFix" Role="RoomType_ServiceFix" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceFix">
+        <PropertyRef Name="ServiceFixId" />
+      </Principal>
+      <Dependent Role="RoomType_ServiceFix">
+        <PropertyRef Name="ServiceFixID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,110 @@
+﻿@model QLKS.Models.ViewChecin
+
+@{
+    ViewBag.Title = "Nhân phòng";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="col-md-7">
+    <div class="portlet light   ">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-pin font-red"></i>
+                <span class="caption-subject font-red sbold uppercase">Thông tin chi tiết</span>
+            </div>
+
+        </div>
+        <div class="portlet-body">
+
+            @Html.Partial("Create", Model.Create)
+        </div>
+    </div>
+</div>
+<div class="col-md-5">
+    <div class="portlet light">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-pin font-red"></i>
+                <span class="caption-subject font-red sbold uppercase">Tra cứu phòng trống</span>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="input_box">
+                <label class="col-md-6">Chọn loại phòng cần tra cứu</label>
+                @Html.DropDownList("Roomtype", ViewBag.RoomType as SelectList, "Tất cả")
+
+            </div>
+            <div class="table-scrollable">
+                <table class="table table-striped table-hover scroll roomtype">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ListRoom.FirstOrDefault().Position)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ListRoom.FirstOrDefault().RoomType.RoomTypeName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ListRoom.FirstOrDefault().RoomType.Price)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.ListRoom)
+                        {
+                            <tr>
+                                <td style ="width: 30%">
+                                    @Html.DisplayFor(modelItem => item.Position)
+                                   @Html.HiddenFor(modelItem => item.RoomNoID)
+                                </td>
+                                <td style ="width: 30%">
+                                    @Html.DisplayFor(modelItem => item.RoomType.RoomTypeName)
+                                </td>
+                                <td style ="width: 40%;min-width: 170px;">
+                                    @Html.DisplayFor(modelItem => item.RoomType.Price)
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td colspan="3">
+                                <script>
+                                     jQuery("table.roomtype tbody tr").click(function () { 
+                                        var id = jQuery(this).find("input").val();
+                                        jQuery("#ListRooms option").each(function () {
+                                            if (this.value == id) {
+                                                jQuery(this).prop("selected", true);
+                                            }
+                                        });
+                                        jQuery(".multiple").select2();
+
+                                    }); 
+                                </script>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    jQuery("#Roomtype").change(function () {
+        jQuery(".loading").fadeIn();
+        var selected = jQuery(this).val();
+
+        jQuery.ajax({
+            url: "../RoomType/Search?id=" + selected,
+            success: function (result) {
+                jQuery(".roomtype").html("");
+                jQuery(".roomtype").append(result);
+                tablescroll();
+                jQuery(".loading").fadeOut();
+
+            }
+        });
+       
+    })
+</script>

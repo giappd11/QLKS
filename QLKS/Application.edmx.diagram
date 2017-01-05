@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9d0f28ee5edd4a06917affa308d39f09" Name="Diagram1" ZoomLevel="60">
+        <EntityTypeShape EntityType="Model.Amenity" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CheckIn" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CONFIGCOMP" Width="1.5" PointX="5.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Customer" Width="1.5" PointX="1.5" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Equipment" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Group" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Invoice" Width="1.5" PointX="7.5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Nationality" Width="1.5" PointX="1.5" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.RevervationRoom" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Revervation" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Room" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.RoomType" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ServiceType" Width="1.5" PointX="12" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UseAmenity" Width="1.5" PointX="3" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UsedService" Width="1.5" PointX="9.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UsedServiceCode" Width="1.5" PointX="7.5" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.User" Width="1.5" PointX="5.75" PointY="6.25" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Equipment_Amenity" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_UseAmenity_Amenity" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_CheckIn_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Invoice_CheckIn" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_UsedServiceCode_CheckIn" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Customers_Nationality" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Groups_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Revervations_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Equipment_RoomType" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_RevervationRoom_Revervations" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_RevervationRoom_RoomType" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Room_RoomType" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ServiceType_UsedService" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_UsedService_UsedServiceCode" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.checkin_Custommer" Width="1.5" PointX="5.5" PointY="18.25" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_CheckIn_Customers" />
+        <AssociationConnector Association="Model.FK_checkin_Custommer_CheckIn" />
+        <AssociationConnector Association="Model.FK_checkin_Custommer_Custommer" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

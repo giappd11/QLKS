@@ -1,0 +1,89 @@
+﻿@model IEnumerable<QLKS.Models.CheckIn>
+
+@{
+    ViewBag.Title = "Danh sách trả phòng";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="portlet light ">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-pin font-red"></i>
+                <span class="caption-subject font-red sbold uppercase">Danh sách trả phòng</span>
+            </div>
+            <div class="actions box_button">
+                <a class="btn" href="/CheckIn/Checkout">Trả phòng</a> 
+            </div>
+
+        </div>
+        <div class="portlet-body">
+            <div class="table-scrollable">
+                <table class="table table-striped table-hover scroll" id="dataTables" border="1"  >
+                    <thead>
+                        <tr>
+                            <th>Phòng  
+                            </th>
+                            <th>Khách hàng
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DateIn)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DateOut)
+                            </th>
+                            <th><br /></th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+
+                                <td style = "width:30% ">
+                                    @{var i_count = 0; }
+                                    @foreach (var modelItem in item.ListRooms)
+                                    {
+                                        i_count++;
+                                        @Html.DisplayFor(itemmodel => modelItem.Room.Position) 
+                       
+                                        if (i_count < item.ListRooms.Count())
+                                        {
+                                        <span>,</span>
+                                        }
+                                    }
+                                </td>
+                                <td style = "width:25%">
+                                    @foreach (var customer in item.checkin_Custommer)
+                                    {
+                                        if (customer.roomMaster == true)
+                                        {
+                                        @Html.DisplayFor(modelItem1 => customer.Customer.Name)
+                                            break;
+                                        }
+                                    }
+                                </td>
+                                <td  style = "width:17.5%">
+                                    @{ 
+                                    DateTime datein = (DateTime)item.DateIn;
+                                    DateTime dateout = (DateTime)item.DateOut;
+                                    }
+                                    @datein.ToShortDateString()
+                                </td>
+                                <td style = "width:17.5%">
+                                    @dateout.ToShortDateString()
+                                </td>
+                                <td  style = "width:10%"> 
+                                    <div class="box_button">
+                                        @Html.ActionLink("Xem", "Details", "CheckIn", new { id = item.CheckInID }, htmlAttributes: new { @class = "btn" })
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody> 
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

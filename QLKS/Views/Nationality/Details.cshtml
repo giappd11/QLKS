@@ -1,0 +1,22 @@
+﻿@model QLKS.Models.Nationality
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Nationality</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NationalityName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NationalityName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.NationalityID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

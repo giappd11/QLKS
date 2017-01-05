@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLKSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="QLKSModelStoreContainer">
+    <EntitySet Name="Amenity" EntityType="QLKSModel.Store.Amenity" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CheckIn" EntityType="QLKSModel.Store.CheckIn" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="checkin_Custommer" EntityType="QLKSModel.Store.checkin_Custommer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CONFIGCOMP" EntityType="QLKSModel.Store.CONFIGCOMP" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customers" EntityType="QLKSModel.Store.Customers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Invoice" EntityType="QLKSModel.Store.Invoice" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ListRooms" EntityType="QLKSModel.Store.ListRooms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Nationality" EntityType="QLKSModel.Store.Nationality" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RevervationRoomType" EntityType="QLKSModel.Store.RevervationRoomType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Revervations" EntityType="QLKSModel.Store.Revervations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Room" EntityType="QLKSModel.Store.Room" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RoomType" EntityType="QLKSModel.Store.RoomType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RoomType_Amenity" EntityType="QLKSModel.Store.RoomType_Amenity" store:Type="Tables" store:Schema="dbo" store:Name="RoomType_Amenity">
+      <DefiningQuery>SELECT 
+      [RoomType_Amenity].[AmenityID] AS [AmenityID], 
+      [RoomType_Amenity].[RoomTypeID] AS [RoomTypeID], 
+      [RoomType_Amenity].[Quantity] AS [Quantity]
+      FROM [dbo].[RoomType_Amenity] AS [RoomType_Amenity]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="RoomType_ServiceFix" EntityType="QLKSModel.Store.RoomType_ServiceFix" store:Type="Tables" store:Schema="dbo" store:Name="RoomType_ServiceFix">
+      <DefiningQuery>SELECT 
+      [RoomType_ServiceFix].[ServiceFixID] AS [ServiceFixID], 
+      [RoomType_ServiceFix].[RoomTypeID] AS [RoomTypeID], 
+      [RoomType_ServiceFix].[Quantity] AS [Quantity]
+      FROM [dbo].[RoomType_ServiceFix] AS [RoomType_ServiceFix]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ServiceFix" EntityType="QLKSModel.Store.ServiceFix" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="QLKSModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_checkin_Custommer_CheckIn" Association="QLKSModel.Store.FK_checkin_Custommer_CheckIn">
+      <End Role="CheckIn" EntitySet="CheckIn" />
+      <End Role="checkin_Custommer" EntitySet="checkin_Custommer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_checkin_Custommer_Custommer" Association="QLKSModel.Store.FK_checkin_Custommer_Custommer">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="checkin_Custommer" EntitySet="checkin_Custommer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customers_Nationality" Association="QLKSModel.Store.FK_Customers_Nationality">
+      <End Role="Nationality" EntitySet="Nationality" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Equipment_Amenity" Association="QLKSModel.Store.FK_Equipment_Amenity">
+      <End Role="Amenity" EntitySet="Amenity" />
+      <End Role="RoomType_Amenity" EntitySet="RoomType_Amenity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Equipment_RoomType" Association="QLKSModel.Store.FK_Equipment_RoomType">
+      <End Role="RoomType" EntitySet="RoomType" />
+      <End Role="RoomType_Amenity" EntitySet="RoomType_Amenity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Invoice_CheckIn" Association="QLKSModel.Store.FK_Invoice_CheckIn">
+      <End Role="CheckIn" EntitySet="CheckIn" />
+      <End Role="Invoice" EntitySet="Invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListRooms_CheckIn" Association="QLKSModel.Store.FK_ListRooms_CheckIn">
+      <End Role="CheckIn" EntitySet="CheckIn" />
+      <End Role="ListRooms" EntitySet="ListRooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListRooms_Room" Association="QLKSModel.Store.FK_ListRooms_Room">
+      <End Role="Room" EntitySet="Room" />
+      <End Role="ListRooms" EntitySet="ListRooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Revervation_Revervations" Association="QLKSModel.Store.FK_Revervation_Revervations">
+      <End Role="Revervations" EntitySet="Revervations" />
+      <End Role="RevervationRoomType" EntitySet="RevervationRoomType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Revervation_RoomType" Association="QLKSModel.Store.FK_Revervation_RoomType">
+      <End Role="RoomType" EntitySet="RoomType" />
+      <End Role="RevervationRoomType" EntitySet="RevervationRoomType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Revervations_Customers" Association="QLKSModel.Store.FK_Revervations_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Revervations" EntitySet="Revervations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Room_RoomType" Association="QLKSModel.Store.FK_Room_RoomType">
+      <End Role="RoomType" EntitySet="RoomType" />
+      <End Role="Room" EntitySet="Room" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoomType_ServiceFix" Association="QLKSModel.Store.FK_RoomType_ServiceFix">
+      <End Role="RoomType" EntitySet="RoomType" />
+      <End Role="RoomType_ServiceFix" EntitySet="RoomType_ServiceFix" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceFix_RoomType" Association="QLKSModel.Store.FK_ServiceFix_RoomType">
+      <End Role="ServiceFix" EntitySet="ServiceFix" />
+      <End Role="RoomType_ServiceFix" EntitySet="RoomType_ServiceFix" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Amenity">
+    <Key>
+      <PropertyRef Name="AmenityID" />
+    </Key>
+    <Property Name="AmenityID" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="AmenityName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="money" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="AmenityUnit" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="CheckIn">
+    <Key>
+      <PropertyRef Name="CheckInID" />
+    </Key>
+    <Property Name="CheckInID" Type="int" Nullable="false" />
+    <Property Name="GroupID" Type="int" />
+    <Property Name="DateIn" Type="date" />
+    <Property Name="Discount" Type="int" />
+    <Property Name="Tax" Type="money" />
+    <Property Name="DateOut" Type="date" />
+    <Property Name="OutofTime" Type="int" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="100" />
+    <Property Name="RoomCharge" Type="money" />
+    <Property Name="CheckInStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="checkin_Custommer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="CheckInID" Type="int" />
+    <Property Name="roomMaster" Type="bit" />
+    <Property Name="id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CONFIGCOMP">
+    <Key>
+      <PropertyRef Name="CompanyName" />
+    </Key>
+    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="CompanyAdd" Type="nvarchar" MaxLength="250" />
+    <Property Name="TaxCode" Type="char" MaxLength="15" />
+    <Property Name="AccountNo" Type="char" MaxLength="15" />
+    <Property Name="Phone" Type="char" MaxLength="15" />
+    <Property Name="Fax" Type="int" />
+    <Property Name="FloorNo" Type="int" />
+    <Property Name="PositionNo" Type="int" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="IDCard" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mail" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" />
+    <Property Name="Sex" Type="bit" />
+    <Property Name="NationalityID" Type="int" />
+    <Property Name="Company" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="InvoiceID" />
+    </Key>
+    <Property Name="InvoiceID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceDate" Type="date" />
+    <Property Name="CheckInID" Type="int" />
+    <Property Name="Total" Type="money" />
+  </EntityType>
+  <EntityType Name="ListRooms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CheckInID" Type="int" Nullable="false" />
+    <Property Name="RoomID" Type="nvarchar" Nullable="false" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Nationality">
+    <Key>
+      <PropertyRef Name="NationalityID" />
+    </Key>
+    <Property Name="NationalityID" Type="int" Nullable="false" />
+    <Property Name="NationalityName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RevervationRoomType">
+    <Key>
+      <PropertyRef Name="ReservationID" />
+    </Key>
+    <Property Name="ReservationID" Type="int" Nullable="false" />
+    <Property Name="RoomTypeID" Type="nvarchar" MaxLength="15" />
+    <Property Name="Numb" Type="int" />
+  </EntityType>
+  <EntityType Name="Revervations">
+    <Key>
+      <PropertyRef Name="ReservationID" />
+    </Key>
+    <Property Name="ReservationID" Type="int" Nullable="false" />
+    <Property Name="IsGroup" Type="bit" />
+    <Property Name="GroupName" Type="nvarchar" MaxLength="100" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="PeopleNumber" Type="int" />
+    <Property Name="ListRoom" Type="nvarchar" MaxLength="100" />
+    <Property Name="DateIn" Type="datetime" />
+    <Property Name="DateOut" Type="datetime" />
+    <Property Name="Requests" Type="nvarchar" MaxLength="100" />
+    <Property Name="Status" Type="int" />
+    <Property Name="BookingDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="RoomNoID" />
+    </Key>
+    <Property Name="RoomNoID" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Floor" Type="int" />
+    <Property Name="Position" Type="int" />
+    <Property Name="RoomTypeID" Type="nvarchar" MaxLength="15" />
+    <Property Name="RoomStatus" Type="int" />
+    <Property Name="RoomPhone" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="RoomType">
+    <Key>
+      <PropertyRef Name="RoomTypeID" />
+    </Key>
+    <Property Name="RoomTypeID" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="RoomTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="money" />
+    <Property Name="Depcriptions" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'H:\HOCTAP\HTTT\GIT_PROJECT\QLKS\QLKS\APP_DATA\QLKS.MDF.dbo.RoomType_Amenity' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="RoomType_Amenity">
+    <Key>
+      <PropertyRef Name="AmenityID" />
+    </Key>
+    <Property Name="AmenityID" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="RoomTypeID" Type="nvarchar" MaxLength="15" />
+    <Property Name="Quantity" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'H:\HOCTAP\HTTT\GIT_PROJECT\QLKS\QLKS\APP_DATA\QLKS.MDF.dbo.RoomType_ServiceFix' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="RoomType_ServiceFix">
+    <Key>
+      <PropertyRef Name="ServiceFixID" />
+    </Key>
+    <Property Name="ServiceFixID" Type="int" Nullable="false" />
+    <Property Name="RoomTypeID" Type="nvarchar" MaxLength="15" />
+    <Property Name="Quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="ServiceFix">
+    <Key>
+      <PropertyRef Name="ServiceFixId" />
+    </Key>
+    <Property Name="ServiceFixId" Type="int" Nullable="false" />
+    <Property Name="ServiceFixName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UsersID" />
+    </Key>
+    <Property Name="UsersID" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Birth" Type="date" />
+    <Property Name="NativeCountry" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sex" Type="bit" />
+    <Property Name="systemRolle" Type="bit" />
+    <Property Name="resourceRolle" Type="bit" />
+    <Property Name="ReservationRolle" Type="bit" />
+    <Property Name="reportRolle" Type="bit" />
+    <Property Name="Pass" Type="nvarchar" MaxLength="30" />
+    <Property Name="login_id" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <Association Name="FK_checkin_Custommer_CheckIn">
+    <End Role="CheckIn" Type="QLKSModel.Store.CheckIn" Multiplicity="0..1" />
+    <End Role="checkin_Custommer" Type="QLKSModel.Store.checkin_Custommer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckIn">
+        <PropertyRef Name="CheckInID" />
+      </Principal>
+      <Dependent Role="checkin_Custommer">
+        <PropertyRef Name="CheckInID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_checkin_Custommer_Custommer">
+    <End Role="Customers" Type="QLKSModel.Store.Customers" Multiplicity="0..1" />
+    <End Role="checkin_Custommer" Type="QLKSModel.Store.checkin_Custommer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="checkin_Custommer">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customers_Nationality">
+    <End Role="Nationality" Type="QLKSModel.Store.Nationality" Multiplicity="0..1" />
+    <End Role="Customers" Type="QLKSModel.Store.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nationality">
+        <PropertyRef Name="NationalityID" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="NationalityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Equipment_Amenity">
+    <End Role="Amenity" Type="QLKSModel.Store.Amenity" Multiplicity="1" />
+    <End Role="RoomType_Amenity" Type="QLKSModel.Store.RoomType_Amenity" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Amenity">
+        <PropertyRef Name="AmenityID" />
+      </Principal>
+      <Dependent Role="RoomType_Amenity">
+        <PropertyRef Name="AmenityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Equipment_RoomType">
+    <End Role="RoomType" Type="QLKSModel.Store.RoomType" Multiplicity="0..1" />
+    <End Role="RoomType_Amenity" Type="QLKSModel.Store.RoomType_Amenity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomType">
+        <PropertyRef Name="RoomTypeID" />
+      </Principal>
+      <Dependent Role="RoomType_Amenity">
+        <PropertyRef Name="RoomTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Invoice_CheckIn">
+    <End Role="CheckIn" Type="QLKSModel.Store.CheckIn" Multiplicity="0..1" />
+    <End Role="Invoice" Type="QLKSModel.Store.Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckIn">
+        <PropertyRef Name="CheckInID" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="CheckInID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListRooms_CheckIn">
+    <End Role="CheckIn" Type="QLKSModel.Store.CheckIn" Multiplicity="1" />
+    <End Role="ListRooms" Type="QLKSModel.Store.ListRooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckIn">
+        <PropertyRef Name="CheckInID" />
+      </Principal>
+      <Dependent Role="ListRooms">
+        <PropertyRef Name="CheckInID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListRooms_Room">
+    <End Role="Room" Type="QLKSModel.Store.Room" Multiplicity="1" />
+    <End Role="ListRooms" Type="QLKSModel.Store.ListRooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="RoomNoID" />
+      </Principal>
+      <Dependent Role="ListRooms">
+        <PropertyRef Name="RoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Revervation_Revervations">
+    <End Role="Revervations" Type="QLKSModel.Store.Revervations" Multiplicity="1" />
+    <End Role="RevervationRoomType" Type="QLKSModel.Store.RevervationRoomType" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Revervations">
+        <PropertyRef Name="ReservationID" />
+      </Principal>
+      <Dependent Role="RevervationRoomType">
+        <PropertyRef Name="ReservationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Revervation_RoomType">
+    <End Role="RoomType" Type="QLKSModel.Store.RoomType" Multiplicity="0..1" />
+    <End Role="RevervationRoomType" Type="QLKSModel.Store.RevervationRoomType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomType">
+        <PropertyRef Name="RoomTypeID" />
+      </Principal>
+      <Dependent Role="RevervationRoomType">
+        <PropertyRef Name="RoomTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Revervations_Customers">
+    <End Role="Customers" Type="QLKSModel.Store.Customers" Multiplicity="0..1" />
+    <End Role="Revervations" Type="QLKSModel.Store.Revervations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Revervations">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Room_RoomType">
+    <End Role="RoomType" Type="QLKSModel.Store.RoomType" Multiplicity="0..1" />
+    <End Role="Room" Type="QLKSModel.Store.Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomType">
+        <PropertyRef Name="RoomTypeID" />
+      </Principal>
+      <Dependent Role="Room">
+        <PropertyRef Name="RoomTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoomType_ServiceFix">
+    <End Role="RoomType" Type="QLKSModel.Store.RoomType" Multiplicity="0..1" />
+    <End Role="RoomType_ServiceFix" Type="QLKSModel.Store.RoomType_ServiceFix" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomType">
+        <PropertyRef Name="RoomTypeID" />
+      </Principal>
+      <Dependent Role="RoomType_ServiceFix">
+        <PropertyRef Name="RoomTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceFix_RoomType">
+    <End Role="ServiceFix" Type="QLKSModel.Store.ServiceFix" Multiplicity="1" />
+    <End Role="RoomType_ServiceFix" Type="QLKSModel.Store.RoomType_ServiceFix" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceFix">
+        <PropertyRef Name="ServiceFixId" />
+      </Principal>
+      <Dependent Role="RoomType_ServiceFix">
+        <PropertyRef Name="ServiceFixID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GetNextAmenitySeq" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetNextcheckInCustomerSeq" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetNextCheckinSeq" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetNextCustomersSeq" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetNextRoomSeq" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetNextRoomTypeSeq" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+</Schema>

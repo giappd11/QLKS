@@ -1,0 +1,857 @@
+/* here you can put your own css to customize and override the theme */
+.artical_top > div {
+    min-width: 20%;
+    overflow: hidden;
+}
+
+.room_status .room.active {
+    color: #258c12;
+}
+
+    .room_status .room.active .count {
+        background: #258c12;
+        border-color: #258c12;
+    }
+
+.room_status .room.deactive {
+    color: #ff0000;
+}
+
+    .room_status .room.deactive .count {
+        background: #ff0000;
+        border-color: #ff0000;
+    }
+
+.room_status .room.wait .count {
+    background: #245798;
+    border-color: #245798;
+}
+
+.room_status .room.wait {
+    color: #245798;
+}
+
+.room_status .room.expery .count {
+    background: #ffc300;
+    border-color: #ffc300;
+}
+
+.room_status .room.expery {
+    color: #ffc300;
+}
+
+.room_status .room.repair .count {
+    background: #777;
+    border-color: #777;
+}
+
+.room_status .room.repair {
+    color: #777;
+}
+
+.flor_rooms .room.status_1 > span {
+    background: #258c12;
+}
+
+.flor_rooms .room.status_2 > span {
+    background: #FF0000;
+}
+
+.flor_rooms .room.status_3 > span {
+    background: #245798;
+}
+
+.flor_name > span {
+    background: #ff00ff none repeat scroll 0 0;
+    margin-right: 10px;
+}
+
+.flor_name span, .flor_rooms span {
+    color: #fff;
+    float: left;
+    font-weight: bold;
+    margin: 0 1px;
+    min-width: 60px;
+    text-align: center;
+}
+
+.room_status .room {
+    display: inline-block;
+    margin: 0 0 0 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+table .box_button {
+    margin-top: 0;
+}
+
+table *, table {
+    box-sizing: padding-box;
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    vertical-align: middle;
+    padding: 8px 13px;
+}
+
+.floor {
+    border-bottom: 2px solid #fff;
+    clear: both;
+    display: block;
+}
+
+.room .count {
+    border: 1px solid;
+    color: #fff;
+    display: block;
+    float: left;
+    margin: 0 5px;
+    padding: 2px 5px;
+}
+
+img {
+    max-width: 100%;
+}
+
+.login {
+    width: 500px;
+    text-align: center;
+    margin: 186px auto 0;
+    border: 1px solid #ddd;
+    padding: 30px 20px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 2px 2px 4px 1px #3d3d3d;
+}
+
+    .login h2 {
+        margin-bottom: 15px;
+    }
+
+.input_box {
+    margin-bottom: 10px;
+    vertical-align: top;
+}
+
+.login .input_box label {
+    width: 24%;
+}
+
+.login .input_checbox {
+    margin-left: 23%;
+}
+
+.login .box_button {
+    margin-right: 80px;
+}
+
+.box_button {
+    margin: 15px 0 0;
+    text-align: right;
+}
+
+body.login_form {
+    overflow: hidden;
+}
+
+.artical_top .room > span {
+    display: inline-block;
+    padding: 3px 8px;
+    vertical-align: middle;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: tahoma;
+}
+
+.artical_top {
+    display: block;
+    padding: 15px 20px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.container {
+    display: block;
+    margin: 0 auto;
+    max-width: 1280px;
+}
+
+.artical_top > div {
+    min-width: 20%;
+    overflow: hidden;
+}
+
+.room_status .room {
+    display: inline-block;
+    margin: 0 0 0 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.room .count {
+    border: 1px solid;
+    color: #fff;
+    display: block;
+    float: left;
+    margin: 0 5px;
+    padding: 2px 5px;
+}
+
+
+
+.floors {
+    margin: 10px 0;
+    padding: 15px 20px;
+}
+
+
+
+
+
+.flor_rooms .room.active > span {
+    background: #258c12;
+}
+
+.flor_rooms .room.deactive > span {
+    background: #FF0000;
+}
+
+.flor_rooms .room.wait > span {
+    background: #245798;
+}
+
+.flor_name > span {
+    background: #ff00ff none repeat scroll 0 0;
+    margin-right: 10px;
+    min-width: 80px;
+}
+
+.menu li a {
+    color: #fff;
+    display: inline-block;
+    padding: 15px 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: #078b91 none repeat scroll 0 0;
+}
+
+.menu li {
+    display: inline-block;
+    text-align: center;
+}
+
+.menu {
+    background: #078b91 none repeat scroll 0 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+    .menu li a:hover {
+        background: #33a6ab none repeat scroll 0 0;
+    }
+
+
+/*dat phong khac le*/
+
+
+.top_left {
+    display: table-cell;
+    vertical-align: middle;
+    width: 60%;
+    float: left;
+}
+
+.top_right {
+    display: table-cell;
+    height: 540px;
+    margin-left: 2%;
+    vertical-align: top;
+    width: 38%;
+    float: left;
+}
+
+legend {
+    margin-left: 10px;
+}
+
+fieldset {
+    padding: 15px 20px;
+    box-sizing: border-box;
+}
+
+table {
+    border: 1px solid #ddd;
+    margin-top: 5px;
+    text-align: center;
+    width: 100%;
+    border-spacing: 0;
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 2px 5px;
+    border-right: 1px solid #ddd;
+}
+
+    th:last-child, td:last-child {
+        border-right: 0 none;
+    }
+
+tr:last-child td {
+    border-bottom: 0 none;
+}
+
+th {
+    background: #ddd none repeat scroll 0 0;
+}
+
+.input_box label {
+    display: inline-block;
+    padding-right: 10px;
+    text-align: right;
+    vertical-align: top;
+}
+
+.input_box {
+    margin-bottom: 10px;
+    vertical-align: top;
+}
+
+    .input_box textarea {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        box-shadow: 0 1px 5px 2px #ddd inset;
+        max-width: 40%;
+        min-width: 40%;
+        min-height: 60px;
+    }
+
+h2.lable {
+    margin: 10px 0 15px 37%;
+}
+
+.box_button {
+    margin: 15px 0 0;
+    text-align: right;
+}
+
+    button, .box_button .btn, .dialog_box .btn, span.btn {
+        border: 1px solid #54A719;
+        border-radius: 5px;
+        padding: 8px 25px;
+        text-transform: uppercase;
+        cursor: pointer;
+        background: #54A719;
+        color: #fff;
+        transition: 400ms;
+        -moz-transition: 400ms;
+        -webkit-transition: 400ms;
+        -webkit-box-shadow: 0 0 0 0 #fff inset;
+        box-shadow: 0 0 0 0 #fff inset;
+        -moz-box-shadow: 0 0 0 0 #fff inset;
+        -o-box-shadow: 0 0 0 0 #fff inset;
+        display: inline-block;
+    }
+
+span.btn {
+    padding: 6px 11px;
+}
+
+    span.btn:hover, button:hover, .box_button .btn:hover, .dialog_box .btn:hover {
+        -webkit-box-shadow: 0 39px 0 0 #fff inset;
+        box-shadow: 0 39px 0 0 #fff inset;
+        -moz-box-shadow: 0 39px 0 0 #fff inset;
+        -webkit-box-shadow: 0 39px 0 0 #fff inset;
+        color: #54A719;
+    }
+
+tr:nth-child(2n) {
+    background: #f7f7f7 none repeat scroll 0 0;
+}
+
+.table {
+    display: table;
+    width: 100%;
+}
+
+article {
+    margin-top: 15px;
+}
+
+tbody, thead {
+    display: block;
+}
+
+table.scroll tbody {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 425px;
+}
+
+th, td {
+    /* width: 1%;*/
+}
+
+table.scroll tbody,
+table.scroll thead {
+    display: block;
+}
+
+table.scroll {
+    width: 100%;
+}
+
+input[type="radio"] {
+    display: inline-block;
+    min-width: 34px !important;
+    vertical-align: middle;
+    width: 20px !important;
+    height: auto;
+    box-shadow: 0 0 0 0;
+}
+
+/*khach doan*/
+.top_right.khachdoan {
+    height: 685px;
+}
+
+.khachdoan table.scroll tbody {
+    height: 555px;
+}
+
+/*quan ly phong*/
+
+.box_action .input_box label {
+    display: block;
+    margin-top: 5px;
+    text-align: left;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.box_action .input_box {
+    float: left;
+    margin-bottom: 0;
+    text-align: left;
+    width: 50%;
+}
+
+.box_action {
+    clear: both;
+    display: block;
+    text-align: left;
+}
+
+.loai_phong table.scroll tbody {
+    height: 230px;
+}
+
+.top_right.loai_phong {
+    height: 510px;
+    margin-bottom: 25px;
+}
+
+/*Quan ly loai phong*/
+
+
+.top_right.button_box {
+    clear: right;
+    height: 235px;
+    margin-bottom: 15px;
+}
+
+.button_box button {
+    display: block;
+    margin-bottom: 10px;
+    min-width: 200px;
+}
+
+.input_box.box_radio {
+    padding-left: 40%;
+    margin-bottom: 17px;
+}
+
+fieldset.top_left {
+    min-height: 235px;
+}
+
+fieldset.top_right.action_box_ {
+    height: 370px;
+}
+
+button.search {
+    display: inline-block;
+    width: 0;
+    text-indent: -99999em;
+    background: url(../images/search.png) no-repeat 50% 50%;
+}
+
+fieldset.top_left.qlkh {
+    min-height: 368px;
+}
+
+/*login*/
+.login {
+    width: 500px;
+    text-align: center;
+    margin: 200px auto;
+    border: 1px solid #ddd;
+    padding: 30px 20px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px 1px #54A719;
+}
+
+    .login h2 {
+        margin-bottom: 15px;
+    }
+
+    .login .input_box label {
+        width: 24%;
+    }
+
+    .login .input_checbox {
+        margin-left: 25%;
+    }
+
+    .login .box_button {
+        margin-right: 80px;
+    }
+/*footer*/
+
+
+footer {
+    width: 100%;
+}
+
+    footer img {
+        width: 100%;
+        display: block;
+    }
+
+.editor-field {
+    width: 60%;
+    float: left;
+}
+
+.editor-label {
+    float: left;
+    text-align: right;
+    width: 39%;
+}
+
+.input_box {
+    overflow: hidden;
+}
+
+    .input_box > select {
+        margin-top: 0;
+        width: 145px !important;
+    }
+
+.login .input_box > input {
+    width: auto;
+}
+
+.dialog_box {
+    background: #fff none repeat scroll 0 0;
+    margin: 60px auto;
+    width: 50%;
+}
+
+.custommer_list > a {
+    display: block;
+    margin-right: 7px;
+    text-align: right;
+}
+
+.modal_show {
+    display: block;
+    margin-left: 7px;
+    text-align: right;
+}
+
+.full_width {
+    clear: both;
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+}
+
+span.button_function {
+    width: 18%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+span.total {
+    font-size: 23px;
+    vertical-align: middle;
+}
+
+.page-wrapper-middle {
+    background: #eff3f8;
+    padding: 35px 0 15px;
+}
+
+.portlet-body .portlet-title {
+    border-bottom: 1px solid #ebe6e1;
+    padding: 20px 0;
+}
+
+.form-group {
+    overflow: hidden;
+}
+
+select#ListServices, select#ListService, select#ListAmenitys, select#ListAmenity {
+    width: 100% !important;
+}
+
+.box_butto .btn {
+    background: #54a719 none repeat scroll 0 0;
+    color: #fff;
+    display: block;
+    margin: 2px 0;
+    padding: 3px;
+    width: 80%;
+    position: relative;
+}
+
+    .box_butto .btn.all:after, .box_butto .btn.add:after {
+        content: "";
+        position: absolute;
+        top: -1px;
+        left: 100%;
+        border-left: 20px solid #54a719;
+        border-top: 14.5px solid transparent;
+        border-bottom: 14.5px solid transparent;
+        border-right: 20px solid transparent;
+    }
+
+    .box_butto .btn.all:before, .box_butto .btn.add:before {
+        content: "";
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        border-left: 20px solid #fff;
+        border-top: 14.5px solid transparent;
+        border-bottom: 14.5px solid transparent;
+        border-right: 20px solid transparent;
+    }
+
+    .box_butto .btn.remove {
+        margin-left: 30px;
+    }
+
+        .box_butto .btn.remove:before {
+            content: "";
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            border-left: 20px solid transparent;
+            border-top: 14.5px solid transparent;
+            border-bottom: 14.5px solid transparent;
+            border-right: 20px solid #fff;
+        }
+
+        .box_butto .btn.remove:after {
+            content: "";
+            position: absolute;
+            top: -1px;
+            right: 100%;
+            border-left: 20px solid transparent;
+            border-top: 14.5px solid transparent;
+            border-bottom: 14.5px solid transparent;
+            border-right: 20px solid #54a719;
+        }
+
+    .box_butto .btn.remove {
+        margin-left: 17px;
+        text-align: center;
+        padding-right: 20px;
+    }
+
+option {
+    padding: 3px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    text-align: center;
+}
+
+.loading {
+    background: #fff url("../img/ajax-loading.gif") no-repeat scroll 50% 50%;
+    height: 100%;
+    left: 0;
+    opacity: 0.6;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+    transition: all 1000ms ease 0s;
+}
+
+.form-control.error {
+    border-color: #ff0000;
+    box-shadow: 0 0 5px 0 #ff0000 inset;
+}
+
+.flor_rooms {
+    display: inline-block;
+    position: relative;
+}
+
+.info::before {
+    border-color: #111 transparent transparent;
+    border-style: solid;
+    border-width: 10px;
+    bottom: -19px;
+    content: "";
+    left: 15px;
+    position: absolute;
+}
+
+.info {
+    background: #111 none repeat scroll 0 0;
+    bottom: 130%;
+    color: #fff;
+    left: 0;
+    padding: 14px;
+    position: absolute;
+    transition: all 400ms ease 0s;
+    width: 240px;
+    z-index: 99;
+    display: none;
+}
+
+.flor_rooms:hover .info {
+    display: block;
+}
+
+.flor_name span, .flor_rooms span a {
+    color: #fff;
+    display: inline-block;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+.message {
+    background: #fff none repeat scroll 0 0;
+    display: block;
+    font-size: 20px;
+    padding: 10px;
+    text-align: center;
+    margin: 0 0 20px;
+}
+
+.actions.box_button {
+    margin: 0;
+}
+
+#ListRooms {
+    display: none;
+}
+
+.btn.btn-outline.grey-salsa {
+    color: #acb5c3 !important;
+}
+
+.roomtype tr {
+    cursor: pointer;
+}
+
+.select2-selection__choice {
+    border-bottom: 1px solid #fff !important;
+    display: block;
+    margin-top: 0 !important;
+    width: 100%;
+    padding: 5px !important;
+}
+
+.select2-selection__rendered {
+    padding: 0 !important;
+}
+
+.select2-selection__choice__remove {
+    float: right;
+}
+
+.portlet.light .portlet-body {
+    overflow: hidden;
+}
+
+.room.status_1 input[type="submit"], .room.status_2 input[type="submit"] {
+    background: transparent;
+    border: 0 none;
+    display: block;
+    padding: 5px;
+    width: 100%;
+}
+
+table.checkout .input-medium {
+    max-width: 58px;
+    width: 58px;
+    display: inline-block;
+}
+
+.modal-body table.scroll tbody {
+    max-height: 250px;
+}
+
+.modal-body .box_button {
+    clear: both;
+}
+
+.no_style {
+    border: 0 none;
+    text-align: left;
+}
+
+    .no_style tr td {
+        border: 0 none;
+    }
+
+.remove {
+    background: rgba(0, 0, 0, 0) url("../global/img/delete.png") no-repeat scroll 50% 50% / 100% auto;
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    overflow: hidden;
+    text-indent: -999em;
+    width: 20px;
+}
+
+.field-validation-error {
+    color: #ff0000;
+    display: block;
+}
+
+.page-logo > a {
+    display: block;
+    float: left;
+    height: 100%;
+    width: 100%;
+}
+
+.logo-default {
+    height: 100%;
+    margin: 0 !important;
+    max-width: 100%;
+}
+
+.top-menu .box_button {
+    margin-top: 5px;
+}
+
+.messagse {
+    background: red none repeat scroll 0 0;
+    color: #fff;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+}

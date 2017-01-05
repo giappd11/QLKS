@@ -1,0 +1,332 @@
+﻿@model QLKS.Models.ViewCheckOut
+
+@{
+    ViewBag.Title = "Trả phòng";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<div class="col-md-12">
+    <div class="portlet light   ">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-pin font-red"></i>
+                <span class="caption-subject font-red sbold uppercase">Trả phòng</span>
+            </div>
+            <div class="actions box_button">
+                <a href="#AddAmenity" class='modal_show btn' data-toggle="modal">Thất lạc</a>
+                <!--<a href="#" class="btn">Dịch vụ</a>-->
+
+
+            </div>
+        </div>
+        <div class="portlet-body">
+
+            @using (Html.BeginForm("TraPhong", "CheckIn"))
+            {
+                @Html.ValidationSummary(true)
+                <div id="print">
+                    @*Html.HiddenFor(modle => modle.RoomID)*@
+                    @Html.HiddenFor(model => model.Create.CheckInID)
+
+                    @Html.HiddenFor(model => model.Invoice.InvoiceDate)
+                    <input type="hidden" value="" class="amenityuse" name="amenityuse" />
+                    @Html.HiddenFor(model => model.Create.DateOut)
+                    @Html.HiddenFor(model => model.Create.DateIn)
+                    <div>
+                        @{
+                DateTime date1 = DateTime.Now;
+                int date = Convert.ToInt32(DateTime.Now.Subtract(Convert.ToDateTime(Model.Create.DateIn)).TotalDays);
+                if (date <= 1) { date = 1; }
+                        }
+                    </div>
+                    <table border="0" class="no_style">
+                        <tr>
+                            <td>@Html.Label("Khách hàng:")</td>
+                            <td>@foreach (var cus in Model.Create.checkin_Custommer)
+                                {
+                                    if (cus.roomMaster.ToString() == "True")
+                                    {
+                                @cus.Customer.Name
+                                    }
+                                }</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.Label("Thời gian nhận phòng:")</td>
+                            <td>@Html.DisplayFor(model => model.Create.DateIn)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.Label("Thời gian dự kiến trả phòng:")</td>
+                            <td>@Html.DisplayFor(model => model.Create.DateOut)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.Label("Thời gian trả phòng:")</td>
+                            <td>@Html.DisplayFor(model => model.Invoice.InvoiceDate)</td>
+                        </tr>
+
+                    </table>
+
+
+                    <table class="checkout">
+
+                        <tr>
+                            <th>Tên dịch vụ</th>
+                            <th>Đơn vị tính</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>
+                            <th>Thành tiền</th>
+                            <th>Bỏ</th>
+                        </tr>
+
+                        @foreach (var room in Model.Create.ListRooms)
+                        {
+                            <tr>
+                                <td style ="width: 15%;    min-width: 200px;">Phòng @room.Room.Position</td>
+                                <td style ="width: 10%">Ngày</td>
+                                <td style ="width: 15%">
+                                    <input type="number" name="number" value="1" readonly />
+                                </td>
+                                <td  style ="width: 20%">@room.Room.RoomType.Price
+                                    <input type = 'hidden' name = 'price' value ='@room.Room.RoomType.Price'/>
+                                </td>
+                                <td  style ="width: 30%">
+                                    <span class="total_price">@room.Room.RoomType.Price</span>
+                                    <input type = 'hidden' name = 'total_price' value ='@room.Room.RoomType.Price'/>
+                                </td>
+                                <td  style ="width: 10%"></td>
+                            </tr>
+                        }
+
+
+
+                    </table>
+
+
+                    <table class="no_style">
+                        <tr> 
+                            <td  style ="width: 75%"></td>
+                            <td>@Html.LabelFor(model => model.Invoice.Total)
+                                @Html.HiddenFor(model => model.Invoice.Total)
+                                <span class="total ">@Html.DisplayFor(model => model.Invoice.Total) VND</span>
+
+
+                            </td>
+                        </tr>
+
+                    </table>
+
+
+                </div>
+
+                <div class="box_button">
+                    <button onclick="javascript:s_submit() +  setTimeout(function(){document.getElementById('save').click()}, 2000)">
+                        Trả phòng
+                    </button>
+                    <input type="submit" style="display: none" id="save" />
+                </div> 
+    
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal  fade" id="AddAmenity" role="dialog">
+    <div class="dialog_box">
+
+        <div class="modal-header">
+            Thiết bị thất lạc
+            <a class="close" data-dismiss="modal"></a>
+        </div>
+        <div class="modal-body">
+            <table id="ListAmenity" class="table scroll">
+                <thead>
+                    <tr>
+                        <th>Thiết bị</th>
+                        <th>Giá</th>
+                        <th>Chọn</th>
+                    </tr>
+                </thead>
+                @foreach (var item in ViewBag.Amenity)
+                {
+                    <tr>
+                        <td>@item.AmenityName</td>
+                        <td>@item.Price</td>
+                        <td>
+                            <input type ="checkbox" value ="@item.AmenityID"/></td>
+                    </tr> 
+                }
+            </table>
+            <div class="box_button">
+                <button class="btn grey-salsa btn-outline" data-dismiss="modal" aria-hidden="true">Thoát</button>
+                <a href="#" class="btn" onclick="javascript:addAmenity();">Thêm vào hóa đơn</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<script>
+
+
+    function s_submit() {
+        printDiv('print');
+    }
+
+    function addAmenity() {
+        var ids = "";
+        var ids = "";
+        var amenityuse = jQuery(".amenityuse").val();
+        var array = []; 
+        if (amenityuse != "" && amenityuse != null) {
+            array = amenityuse.split(','); 
+        }
+        var check = true;
+        jQuery("#ListAmenity input[type='checkbox']:checked").each(function (el) { 
+            if (array.length > 0 && jQuery.inArray(jQuery(this).val().trim(), array1) >= 0) {
+                check = false;
+            }
+            else { 
+                amenityuse += (jQuery(this).val() + ",");
+                jQuery(".amenityuse").val(amenityuse);
+                ids += (jQuery(this).val() + ",");
+            }
+        })
+
+        if (check == true) {
+            jQuery.ajax({
+                url: "/Amenity/AddAmenity?ids=" + ids,
+                success: function (result) {
+                    jQuery(".checkout").append(result);
+                    caculator();
+                    alert("Thêm thành công");
+                }
+            })
+        } else {
+
+            alert("Thêm không thành công. bạn không được thêm thiết bị đã có trong hóa đơn");
+        }
+    }
+    $(document).ajaxStop(function () {
+        jQuery("input[name ='number']").change(function () {
+            caculator();
+        })
+        jQuery(".remove").click(function () {
+            jQuery(this).parent().parent().remove();
+            caculator();
+        })
+
+    })
+    function reloadscript() {
+        $('#ListAmenity').dataTable();
+    }
+
+    function caculator() {
+        var result = 0;
+        jQuery(".checkout tr").each(function () {
+            if (jQuery(this).find("input[name ='number']").val() != undefined) {
+                result += jQuery(this).find("input[name ='number']").val() * jQuery(this).find("input[name ='price']").val();
+                jQuery(this).find(".total_price").html();
+                jQuery(this).find(".total_price").html(jQuery(this).find("input[name ='number']").val() * jQuery(this).find("input[name ='price']").val());
+            }
+        })
+
+        jQuery(".total").html();
+        jQuery(".total").html(result + " VND");
+        jQuery("#Invoice_Total").val(result);
+    }
+
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+
+    }
+
+    function selectAllAndSubmit() {
+        jQuery("#ListService option").attr("selected", "selected");
+        jQuery("#ListAmenity option").attr("selected", "selected");
+        jQuery(document).form[0].submit();
+    }
+
+    function autoCaculator() {
+        var selO = document.getElementById('ListService');
+        var selValues = [];
+        for (i = 0; i < selO.length; i++) {
+            selValues.push(selO.options[i].value);
+        }
+        selO = document.getElementById('ListAmenity');
+        var selValues1 = [];
+        for (i = 0; i < selO.length; i++) {
+            selValues1.push(selO.options[i].value);
+        }
+
+        jQuery.ajax({
+            url: "/CheckIn/Caculator?ListService=" + selValues + "&ListAmenity=" + selValues1 + "&Total=" + jQuery("#Invoice_Total").val(),
+            success: function (result) {
+                jQuery(".total").html();
+                jQuery(".total").html(result + " VND");
+            }
+        })
+    }
+
+    $(window).load(function () {
+        $('#ListAmenity').dataTable({
+            "oLanguage": {
+                "sProcessing": "Vui lòng chờ...",
+                "sSearch": "Tìm kiếm",
+                //"sLengthMenu":"Hiện trên 1 trang", 
+                "sInfo": "_START_ đến _END_ trong _TOTAL_ hàng",
+                "sInfoEmpty": "0 đến 0 trong 0 hàng",
+                "oPaginate": {
+                    "sFirst": "Đầu tiên",
+                    "sPrevious": "Trở về",
+                    "sNext": "Sau",
+                    "sLast": "Cuối cùng"
+                }
+
+            },
+        });
+        $(window).resize();
+    });
+
+
+    function moveDualList(srcList, destList, moveAll) {
+
+        if ((srcList.selectedIndex == -1) && (moveAll == false)) {
+            return;
+        }
+
+        newDestList = new Array(destList.options.length);
+
+        var len = 0;
+        if (destList != null) {
+            for (len = 0; len < destList.options.length; len++) {
+                if (destList.options[len] != null) {
+                    newDestList[len] = new Option(destList.options[len].text, destList.options[len].value, destList.options[len].defaultSelected, destList.options[len].selected);
+                }
+            }
+        }
+
+        for (var i = 0; i < srcList.options.length; i++) {
+            if (srcList.options[i] != null && (srcList.options[i].selected == true || moveAll)) {
+                newDestList[len] = new Option(srcList.options[i].text, srcList.options[i].value, srcList.options[i].defaultSelected, srcList.options[i].selected);
+                len++;
+            }
+        }
+        for (var j = 0; j < newDestList.length; j++) {
+            if (newDestList[j] != null) {
+                destList.options[j] = newDestList[j];
+            }
+        }
+
+        for (var i = srcList.options.length - 1; i >= 0; i--) {
+            if (srcList.options[i] != null && (srcList.options[i].selected == true || moveAll)) {
+
+                srcList.options[i] = null;
+            }
+        }
+        autoCaculator();
+    }
+</script>

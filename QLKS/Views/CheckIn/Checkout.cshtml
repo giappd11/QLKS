@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Chọn phòng trả";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<div class="col-md-12">
+    <div class="portlet light   ">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-pin font-red"></i>
+                <span class="caption-subject font-red sbold uppercase">Trả phòng</span>
+            </div>
+
+        </div>
+        <div class="portlet-body">
+
+            <form action="/Checkin/ChooseRoom" method="post">
+                <div class="checkout">
+                    <div class="form-group">
+                        <div class="control-label col-md-3">
+                            Chọn Phòng
+                        </div>
+                        <div class="col-md-9">
+                            @Html.DropDownList("RoomsId", ViewBag.RoomNoID as SelectList, "--Xin mời chọn--")
+                        </div>
+                    </div>
+                    <div class="box_button">
+                        <button>Checkout</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    jQuery("#RoomsId").select2();
+
+</script>

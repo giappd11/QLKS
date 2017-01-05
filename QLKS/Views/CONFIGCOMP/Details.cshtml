@@ -1,0 +1,72 @@
+﻿@model QLKS.Models.CONFIGCOMP
+
+@{
+    Layout = "../Shared/_LayoutPage.cshtml";
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CONFIGCOMP</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CompanyName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CompanyName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CompanyAdd)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CompanyAdd)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TaxCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TaxCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AccountNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AccountNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Phone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Fax)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fax)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FloorNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FloorNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PositionNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PositionNo)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

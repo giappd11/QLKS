@@ -1,0 +1,1498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4089959A-7EB1-417F-A766-2F2667506B5A}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QLKS</RootNamespace>
+    <AssemblyName>QLKS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AmenityController.cs" />
+    <Compile Include="Controllers\CheckInController.cs" />
+    <Compile Include="Controllers\CONFIGCOMPController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\GlobalFunction.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NationalityController.cs" />
+    <Compile Include="Controllers\RevervationController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\RoomTypeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Amenity.cs">
+      <DependentUpon>Aplication.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Aplication.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Aplication.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Aplication.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Aplication.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Aplication.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Aplication.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CheckIn.cs">
+      <DependentUpon>Aplication.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\checkin_Custommer.cs">
+      <DependentUpon>Aplication.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CONFIGCOMP.cs">
+      <DependentUpon>Aplication.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>Aplication.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Invoice.cs">
+      <DependentUpon>Aplication.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ListRoom.cs">
+      <DependentUpon>Aplication.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Nationality.cs">
+      <DependentUpon>Aplication.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ReservationsRoom.cs">
+      <DependentUpon>Aplication.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Revervation.cs">
+      <DependentUpon>Aplication.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RevervationRoomType.cs">
+      <DependentUpon>Aplication.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Room.cs">
+      <DependentUpon>Aplication.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RoomType.cs">
+      <DependentUpon>Aplication.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RoomType_Amenity.cs">
+      <DependentUpon>Aplication.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RoomType_ServiceFix.cs">
+      <DependentUpon>Aplication.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ServiceFix.cs">
+      <DependentUpon>Aplication.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>Aplication.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Validation.cs" />
+    <Compile Include="Models\ViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="App_Data\QLKS.mdf" />
+    <Content Include="App_Data\QLKS_log.ldf">
+      <DependentUpon>QLKS.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\script.sql" />
+    <Content Include="Content\Theme\Default\css\custom.css" />
+    <Content Include="Content\Theme\Default\css\custom.min.css" />
+    <Content Include="Content\Theme\Default\css\layout.css" />
+    <Content Include="Content\Theme\Default\css\layout.min.css" />
+    <Content Include="Content\Theme\Default\css\select2.min.css" />
+    <Content Include="Content\Theme\Default\css\table.css" />
+    <Content Include="Content\Theme\Default\css\themes\blue-hoki.css" />
+    <Content Include="Content\Theme\Default\css\themes\blue-hoki.min.css" />
+    <Content Include="Content\Theme\Default\css\themes\blue-steel.css" />
+    <Content Include="Content\Theme\Default\css\themes\blue-steel.min.css" />
+    <Content Include="Content\Theme\Default\css\themes\default.css" />
+    <Content Include="Content\Theme\Default\css\themes\default.min.css" />
+    <Content Include="Content\Theme\Default\css\themes\green-haze.css" />
+    <Content Include="Content\Theme\Default\css\themes\green-haze.min.css" />
+    <Content Include="Content\Theme\Default\css\themes\purple-plum.css" />
+    <Content Include="Content\Theme\Default\css\themes\purple-plum.min.css" />
+    <Content Include="Content\Theme\Default\css\themes\purple-studio.css" />
+    <Content Include="Content\Theme\Default\css\themes\purple-studio.min.css" />
+    <Content Include="Content\Theme\Default\css\themes\red-intense.css" />
+    <Content Include="Content\Theme\Default\css\themes\red-intense.min.css" />
+    <Content Include="Content\Theme\Default\css\themes\red-sunglo.css" />
+    <Content Include="Content\Theme\Default\css\themes\red-sunglo.min.css" />
+    <Content Include="Content\Theme\Default\css\themes\yellow-crusta.css" />
+    <Content Include="Content\Theme\Default\css\themes\yellow-crusta.min.css" />
+    <Content Include="Content\Theme\Default\css\themes\yellow-orange.css" />
+    <Content Include="Content\Theme\Default\css\themes\yellow-orange.min.css" />
+    <Content Include="Content\Theme\Default\global\css\components-md.css" />
+    <Content Include="Content\Theme\Default\global\css\components-md.min.css" />
+    <Content Include="Content\Theme\Default\global\css\components-rounded.css" />
+    <Content Include="Content\Theme\Default\global\css\components-rounded.min.css" />
+    <Content Include="Content\Theme\Default\global\css\components.css" />
+    <Content Include="Content\Theme\Default\global\css\components.min.css" />
+    <Content Include="Content\Theme\Default\global\css\plugins-md.css" />
+    <Content Include="Content\Theme\Default\global\css\plugins-md.min.css" />
+    <Content Include="Content\Theme\Default\global\css\plugins.css" />
+    <Content Include="Content\Theme\Default\global\css\plugins.min.css" />
+    <Content Include="Content\Theme\Default\global\img\accordion-plusminus.png" />
+    <Content Include="Content\Theme\Default\global\img\ajax-loading.gif" />
+    <Content Include="Content\Theme\Default\global\img\ajax-modal-loading.gif" />
+    <Content Include="Content\Theme\Default\global\img\datatable-row-openclose.png" />
+    <Content Include="Content\Theme\Default\global\img\delete.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ad.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ae.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\af.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ag.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ai.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\al.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\am.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\an.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ao.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ar.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\as.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\at.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\au.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\aw.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ax.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\az.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ba.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\bb.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\bd.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\be.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\bf.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\bg.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\bh.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\bi.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\bj.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\bm.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\bn.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\bo.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\br.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\bs.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\bt.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\bv.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\bw.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\by.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\bz.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ca.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\catalonia.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\cc.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\cd.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\cf.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\cg.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ch.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ci.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ck.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\cl.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\cm.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\cn.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\co.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\cr.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\cs.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\cu.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\cv.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\cx.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\cy.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\cz.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\de.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\dj.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\dk.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\dm.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\do.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\dz.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ec.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ee.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\eg.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\eh.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\england.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\er.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\es.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\et.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\europeanunion.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\fam.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\fi.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\fj.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\fk.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\fm.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\fo.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\fr.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ga.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\gb.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\gd.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ge.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\gf.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\gh.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\gi.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\gl.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\gm.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\gn.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\gp.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\gq.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\gr.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\gs.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\gt.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\gu.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\gw.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\gy.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\hk.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\hm.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\hn.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\hr.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ht.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\hu.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\id.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ie.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\il.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\in.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\io.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\iq.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ir.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\is.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\it.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\jm.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\jo.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\jp.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ke.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\kg.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\kh.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ki.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\km.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\kn.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\kp.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\kr.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\kw.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ky.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\kz.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\la.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\lb.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\lc.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\li.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\lk.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\lr.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ls.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\lt.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\lu.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\lv.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ly.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ma.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\mc.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\md.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\me.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\mg.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\mh.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\mk.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ml.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\mm.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\mn.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\mo.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\mp.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\mq.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\mr.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ms.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\mt.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\mu.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\mv.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\mw.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\mx.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\my.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\mz.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\na.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\nc.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ne.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\nf.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ng.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ni.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\nl.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\no.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\np.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\nr.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\nu.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\nz.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\om.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\pa.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\pe.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\pf.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\pg.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ph.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\pk.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\pl.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\pm.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\pn.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\pr.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ps.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\pt.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\pw.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\py.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\qa.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\re.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\readme.txt" />
+    <Content Include="Content\Theme\Default\global\img\flags\ro.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\rs.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ru.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\rw.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\sa.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\sb.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\sc.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\scotland.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\sd.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\se.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\sg.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\sh.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\si.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\sj.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\sk.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\sl.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\sm.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\sn.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\so.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\sr.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\st.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\sv.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\sy.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\sz.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\tc.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\td.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\tf.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\tg.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\th.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\tj.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\tk.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\tl.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\tm.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\tn.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\to.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\tr.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\tt.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\tv.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\tw.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\tz.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ua.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ug.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\um.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\us.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\uy.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\uz.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\va.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\vc.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ve.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\vg.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\vi.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\vn.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\vu.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\wales.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\wf.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ws.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\ye.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\yt.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\za.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\zm.png" />
+    <Content Include="Content\Theme\Default\global\img\flags\zw.png" />
+    <Content Include="Content\Theme\Default\global\img\input-spinner.gif" />
+    <Content Include="Content\Theme\Default\global\img\loading-spinner-blue.gif" />
+    <Content Include="Content\Theme\Default\global\img\loading-spinner-default.gif" />
+    <Content Include="Content\Theme\Default\global\img\loading-spinner-grey.gif" />
+    <Content Include="Content\Theme\Default\global\img\loading.gif" />
+    <Content Include="Content\Theme\Default\global\img\logo.jpg" />
+    <Content Include="Content\Theme\Default\global\img\overlay-icon.png" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\01.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\02.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\03.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\04.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\05.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\06.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\07.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\08.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\09.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\1.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\10.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\11.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\12.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\13.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\14.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\15.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\16.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\17.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\18.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\19.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\2.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\20.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\21.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\22.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\23.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\24.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\25.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\26.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\27.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\28.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\29.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\3.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\30.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\31.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\32.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\33.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\34.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\35.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\36.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\37.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\38.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\39.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\4.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\40.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\41.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\42.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\43.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\44.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\45.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\46.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\47.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\48.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\49.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\5.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\50.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\51.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\52.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\53.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\54.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\55.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\56.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\57.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\58.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\59.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\6.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\60.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\61.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\62.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\63.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\64.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\65.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\66.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\67.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\68.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\69.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\7.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\70.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\71.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\72.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\73.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\74.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\75.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\76.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\77.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\78.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\79.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\8.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\80.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\81.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\82.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\83.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\84.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\85.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\86.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\87.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\88.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\89.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\9.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\90.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\91.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\92.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\93.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\94.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\95.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\96.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\97.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\98.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\1200x900\99.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\400x300\1.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\400x300\2.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\400x300\3.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\01.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\010.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\011.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\012.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\013.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\014.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\015.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\016.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\017.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\02.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\03.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\04.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\05.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\06.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\07.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\08-long.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\08.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\09.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\1.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\10.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\100.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\101.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\102.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\103.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\11.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\12.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\13.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\14.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\15.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\16.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\17.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\18.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\19.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\2.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\20.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\21.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\22.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\23.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\24.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\25.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\26.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\27.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\28.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\29.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\3.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\30.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\31.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\32.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\33.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\34.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\35.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\36.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\37.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\38.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\39.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\4.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\40.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\41.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\42.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\43.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\44.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\45.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\46.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\47.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\48.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\49.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\5.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\50.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\51.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\52.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\53.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\54.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\55.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\56.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\57.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\58.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\59.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\6.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\60.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\61.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\62.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\63.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\64.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\65.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\66.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\67.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\68.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\69.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\7.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\70.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\71.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\72.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\73.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\74.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\75.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\76.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\77.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\78.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\79.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\8.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\80.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\81.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\82.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\83.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\84.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\85.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\86.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\87.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\88.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\89.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\9.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\90.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\91.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\92.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\93.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\94.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\95.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\96.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\97.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\98.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portfolio\600x600\99.jpg" />
+    <Content Include="Content\Theme\Default\global\img\portlet-collapse-icon-white.png" />
+    <Content Include="Content\Theme\Default\global\img\portlet-collapse-icon.png" />
+    <Content Include="Content\Theme\Default\global\img\portlet-config-icon-white.png" />
+    <Content Include="Content\Theme\Default\global\img\portlet-config-icon.png" />
+    <Content Include="Content\Theme\Default\global\img\portlet-expand-icon-white.png" />
+    <Content Include="Content\Theme\Default\global\img\portlet-expand-icon.png" />
+    <Content Include="Content\Theme\Default\global\img\portlet-reload-icon-white.png" />
+    <Content Include="Content\Theme\Default\global\img\portlet-reload-icon.png" />
+    <Content Include="Content\Theme\Default\global\img\portlet-remove-icon-white.png" />
+    <Content Include="Content\Theme\Default\global\img\portlet-remove-icon.png" />
+    <Content Include="Content\Theme\Default\global\img\remove-icon-small.png" />
+    <Content Include="Content\Theme\Default\global\img\social\aboutme.png" />
+    <Content Include="Content\Theme\Default\global\img\social\amazon.png" />
+    <Content Include="Content\Theme\Default\global\img\social\behance.png" />
+    <Content Include="Content\Theme\Default\global\img\social\blogger.png" />
+    <Content Include="Content\Theme\Default\global\img\social\deviantart.png" />
+    <Content Include="Content\Theme\Default\global\img\social\dribbble.png" />
+    <Content Include="Content\Theme\Default\global\img\social\dropbox.png" />
+    <Content Include="Content\Theme\Default\global\img\social\evernote.png" />
+    <Content Include="Content\Theme\Default\global\img\social\facebook.png" />
+    <Content Include="Content\Theme\Default\global\img\social\flickr.png" />
+    <Content Include="Content\Theme\Default\global\img\social\forrst.png" />
+    <Content Include="Content\Theme\Default\global\img\social\foursquare.png" />
+    <Content Include="Content\Theme\Default\global\img\social\github.png" />
+    <Content Include="Content\Theme\Default\global\img\social\googleplus.png" />
+    <Content Include="Content\Theme\Default\global\img\social\gravatar.png" />
+    <Content Include="Content\Theme\Default\global\img\social\instagram.png" />
+    <Content Include="Content\Theme\Default\global\img\social\jolicloud.png" />
+    <Content Include="Content\Theme\Default\global\img\social\klout.png" />
+    <Content Include="Content\Theme\Default\global\img\social\last-fm.png" />
+    <Content Include="Content\Theme\Default\global\img\social\linkedin.png" />
+    <Content Include="Content\Theme\Default\global\img\social\myspace.png" />
+    <Content Include="Content\Theme\Default\global\img\social\picasa.png" />
+    <Content Include="Content\Theme\Default\global\img\social\pintrest.png" />
+    <Content Include="Content\Theme\Default\global\img\social\quora.png" />
+    <Content Include="Content\Theme\Default\global\img\social\reddit.png" />
+    <Content Include="Content\Theme\Default\global\img\social\rss.png" />
+    <Content Include="Content\Theme\Default\global\img\social\skype.png" />
+    <Content Include="Content\Theme\Default\global\img\social\spotify.png" />
+    <Content Include="Content\Theme\Default\global\img\social\stumbleupon.png" />
+    <Content Include="Content\Theme\Default\global\img\social\tumblr.png" />
+    <Content Include="Content\Theme\Default\global\img\social\twitter.png" />
+    <Content Include="Content\Theme\Default\global\img\social\vimeo.png" />
+    <Content Include="Content\Theme\Default\global\img\social\vk.png" />
+    <Content Include="Content\Theme\Default\global\img\social\wordpress.png" />
+    <Content Include="Content\Theme\Default\global\img\social\xing.png" />
+    <Content Include="Content\Theme\Default\global\img\social\yahoo.png" />
+    <Content Include="Content\Theme\Default\global\img\social\youtube.png" />
+    <Content Include="Content\Theme\Default\global\img\syncfusion-icons-white.png" />
+    <Content Include="Content\Theme\Default\global\img\syncfusion-icons.png" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\css\bootstrap-datepicker.css" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\css\bootstrap-datepicker.min.css" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\css\bootstrap-datepicker.standalone.css" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\css\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\css\bootstrap-datepicker3.css" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\css\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\css\bootstrap-datepicker3.standalone.css" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\css\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\js\bootstrap-datepicker.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.ar.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.az.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.bg.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.bs.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.ca.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.cs.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.cy.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.da.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.de.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.el.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.en-GB.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.eo.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.es.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.et.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.eu.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.fa.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.fi.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.fo.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.fr-CH.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.fr.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.gl.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.he.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.hr.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.hu.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.hy.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.id.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.is.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.it-CH.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.it.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.ja.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.ka.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.kh.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.kk.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.ko.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.kr.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.lt.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.lv.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.me.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.mk.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.mn.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.ms.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.nb.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.nl-BE.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.nl.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.no.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.pl.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.pt-BR.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.pt.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.ro.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.rs-latin.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.rs.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.ru.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.sk.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.sl.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.sq.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.sr-latin.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.sr.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.sv.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.sw.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.th.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.tr.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.uk.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.vi.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.zh-CN.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datepicker\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\css\bootstrap-datetimepicker.css" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\bootstrap-datetimepicker.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.bg.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ca.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.cs.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.da.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.de.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.el.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.es.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.fi.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.fr.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.he.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.hr.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.hu.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.id.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.is.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.it.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ja.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.kr.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.lt.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.lv.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ms.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.nb.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.nl.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.pl.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.pt-BR.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.pt.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ro.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.rs-latin.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.rs.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ru.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.sk.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.sl.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.sv.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.sw.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.th.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.tr.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ua.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.uk.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.zh-CN.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.zh-TW.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-modal\css\bootstrap-modal-bs3patch.css" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-modal\css\bootstrap-modal.css" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-modal\js\bootstrap-modal.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-modal\js\bootstrap-modalmanager.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\datatables\datatables.all.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\datatables\datatables.min.css" />
+    <Content Include="Content\Theme\Default\global\plugins\datatables\datatables.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\datatables\images\back_disabled.png" />
+    <Content Include="Content\Theme\Default\global\plugins\datatables\images\back_enabled.png" />
+    <Content Include="Content\Theme\Default\global\plugins\datatables\images\back_enabled_hover.png" />
+    <Content Include="Content\Theme\Default\global\plugins\datatables\images\forward_disabled.png" />
+    <Content Include="Content\Theme\Default\global\plugins\datatables\images\forward_enabled.png" />
+    <Content Include="Content\Theme\Default\global\plugins\datatables\images\forward_enabled_hover.png" />
+    <Content Include="Content\Theme\Default\global\plugins\datatables\images\sort_asc.png" />
+    <Content Include="Content\Theme\Default\global\plugins\datatables\images\sort_asc_disabled.png" />
+    <Content Include="Content\Theme\Default\global\plugins\datatables\images\sort_both.png" />
+    <Content Include="Content\Theme\Default\global\plugins\datatables\images\sort_desc.png" />
+    <Content Include="Content\Theme\Default\global\plugins\datatables\images\sort_desc_disabled.png" />
+    <Content Include="Content\Theme\Default\global\plugins\datatables\plugins\bootstrap\datatables.bootstrap.css" />
+    <Content Include="Content\Theme\Default\global\plugins\datatables\plugins\bootstrap\datatables.bootstrap.js" />
+    <Content Include="Content\Theme\Default\global\plugins\excanvas.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\fancybox\lib\jquery-1.10.1.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\fancybox\lib\jquery-1.9.0.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\fancybox\lib\jquery.mousewheel-3.0.6.pack.js" />
+    <Content Include="Content\Theme\Default\global\plugins\fancybox\source\blank.gif" />
+    <Content Include="Content\Theme\Default\global\plugins\fancybox\source\fancybox_loading%402x.gif" />
+    <Content Include="Content\Theme\Default\global\plugins\fancybox\source\fancybox_loading.gif" />
+    <Content Include="Content\Theme\Default\global\plugins\fancybox\source\fancybox_overlay.png" />
+    <Content Include="Content\Theme\Default\global\plugins\fancybox\source\fancybox_sprite%402x.png" />
+    <Content Include="Content\Theme\Default\global\plugins\fancybox\source\fancybox_sprite.png" />
+    <Content Include="Content\Theme\Default\global\plugins\fancybox\source\helpers\fancybox_buttons.png" />
+    <Content Include="Content\Theme\Default\global\plugins\fancybox\source\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="Content\Theme\Default\global\plugins\fancybox\source\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="Content\Theme\Default\global\plugins\fancybox\source\helpers\jquery.fancybox-media.js" />
+    <Content Include="Content\Theme\Default\global\plugins\fancybox\source\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="Content\Theme\Default\global\plugins\fancybox\source\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="Content\Theme\Default\global\plugins\fancybox\source\jquery.fancybox.css" />
+    <Content Include="Content\Theme\Default\global\plugins\fancybox\source\jquery.fancybox.js" />
+    <Content Include="Content\Theme\Default\global\plugins\fancybox\source\jquery.fancybox.pack.js" />
+    <Content Include="Content\Theme\Default\global\plugins\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\Theme\Default\global\plugins\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\Theme\Default\global\plugins\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Theme\Default\global\plugins\holder.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-migrate.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-ui\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-ui\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-ui\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-ui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-ui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-ui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-ui\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-ui\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-ui\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-ui\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-ui\jquery-ui.min.css" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-ui\jquery-ui.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\additional-methods.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\additional-methods.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\jquery.validate.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\jquery.validate.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_ar.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_ar.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_bg.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_bg.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_bn_BD.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_bn_BD.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_ca.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_ca.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_cs.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_cs.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_da.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_da.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_de.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_de.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_el.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_el.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_es.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_es.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_es_AR.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_es_AR.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_es_PE.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_es_PE.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_et.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_et.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_eu.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_eu.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_fa.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_fa.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_fi.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_fi.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_fr.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_fr.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_ge.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_ge.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_gl.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_gl.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_he.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_he.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_hr.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_hr.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_hu.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_hu.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_hy_AM.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_hy_AM.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_id.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_id.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_is.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_is.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_it.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_it.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_ja.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_ja.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_ka.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_ka.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_kk.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_kk.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_ko.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_ko.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_lt.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_lt.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_lv.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_lv.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_my.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_my.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_nl.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_nl.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_no.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_no.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_pl.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_pl.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_pt_BR.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_pt_BR.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_pt_PT.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_pt_PT.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_ro.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_ro.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_ru.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_ru.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_si.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_si.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_sk.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_sk.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_sl.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_sl.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_sr.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_sr.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_sr_lat.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_sr_lat.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_sv.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_sv.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_th.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_th.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_tj.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_tj.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_tr.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_tr.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_uk.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_uk.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_vi.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_vi.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_zh.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_zh.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_zh_TW.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\messages_zh_TW.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\methods_de.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\methods_de.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\methods_es_CL.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\methods_es_CL.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\methods_fi.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\methods_fi.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\methods_nl.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\methods_nl.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\methods_pt.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\js\localization\methods_pt.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery.blockui.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery.easing.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery.input-ip-address-control-1.0.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery.mockjax.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery.parallax.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery.pulsate.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery.scrollTo.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery.sparkline.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\js.cookie.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\livecss.js" />
+    <Content Include="Content\Theme\Default\global\plugins\moment.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\raphael.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\respond.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\css\select2-bootstrap.min.css" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\css\select2.css" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\css\select2.min.css" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\ar.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\az.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\bg.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\ca.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\cs.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\da.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\de.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\el.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\en.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\es.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\et.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\eu.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\fa.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\fi.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\fr.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\gl.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\he.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\hi.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\hr.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\hu.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\id.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\is.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\it.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\ja.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\km.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\ko.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\lt.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\lv.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\mk.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\ms.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\nb.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\nl.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\pl.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\pt-BR.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\pt.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\ro.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\ru.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\sk.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\sr-Cyrl.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\sr.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\sv.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\th.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\tr.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\uk.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\vi.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\zh-CN.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\i18n\zh-TW.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\select2.full.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\select2.full.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\select2.js" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\js\select2.min.js" />
+    <Content Include="Content\Theme\Default\global\plugins\simple-line-icons\fonts\Simple-Line-Icons.dev.svg" />
+    <Content Include="Content\Theme\Default\global\plugins\simple-line-icons\fonts\Simple-Line-Icons.svg" />
+    <Content Include="Content\Theme\Default\global\plugins\simple-line-icons\icons-lte-ie7.js" />
+    <Content Include="Content\Theme\Default\global\plugins\simple-line-icons\License.txt" />
+    <Content Include="Content\Theme\Default\global\plugins\simple-line-icons\Readme.txt" />
+    <Content Include="Content\Theme\Default\global\plugins\simple-line-icons\simple-line-icons.css" />
+    <Content Include="Content\Theme\Default\global\plugins\simple-line-icons\simple-line-icons.min.css" />
+    <Content Include="Content\Theme\Default\global\scripts\app.js" />
+    <Content Include="Content\Theme\Default\global\scripts\app.min.js" />
+    <Content Include="Content\Theme\Default\global\scripts\datatable.js" />
+    <Content Include="Content\Theme\Default\global\scripts\datatable.min.js" />
+    <Content Include="Content\Theme\Default\img\ajax-loading.gif" />
+    <Content Include="Content\Theme\Default\img\ajax-modal-loading.gif" />
+    <Content Include="Content\Theme\Default\img\arrow-asc.png" />
+    <Content Include="Content\Theme\Default\img\arrow-both.png" />
+    <Content Include="Content\Theme\Default\img\arrow-desc.png" />
+    <Content Include="Content\Theme\Default\img\avatar.png" />
+    <Content Include="Content\Theme\Default\img\avatar1.jpg" />
+    <Content Include="Content\Theme\Default\img\avatar10.jpg" />
+    <Content Include="Content\Theme\Default\img\avatar11.jpg" />
+    <Content Include="Content\Theme\Default\img\avatar2.jpg" />
+    <Content Include="Content\Theme\Default\img\avatar3.jpg" />
+    <Content Include="Content\Theme\Default\img\avatar4.jpg" />
+    <Content Include="Content\Theme\Default\img\avatar5.jpg" />
+    <Content Include="Content\Theme\Default\img\avatar6.jpg" />
+    <Content Include="Content\Theme\Default\img\avatar7.jpg" />
+    <Content Include="Content\Theme\Default\img\avatar8.jpg" />
+    <Content Include="Content\Theme\Default\img\avatar9.jpg" />
+    <Content Include="Content\Theme\Default\img\favicon.ico" />
+    <Content Include="Content\Theme\Default\img\hotel.jpg" />
+    <Content Include="Content\Theme\Default\img\icon-color-close.png" />
+    <Content Include="Content\Theme\Default\img\icon-color.png" />
+    <Content Include="Content\Theme\Default\img\loading-spinner-blue.gif" />
+    <Content Include="Content\Theme\Default\img\loading-spinner-default.gif" />
+    <Content Include="Content\Theme\Default\img\loading-spinner-grey.gif" />
+    <Content Include="Content\Theme\Default\img\loading.gif" />
+    <Content Include="Content\Theme\Default\img\logo-big-white.png" />
+    <Content Include="Content\Theme\Default\img\logo-big.png" />
+    <Content Include="Content\Theme\Default\img\logo-blue-hoki.png" />
+    <Content Include="Content\Theme\Default\img\logo-blue-steel.png" />
+    <Content Include="Content\Theme\Default\img\logo-default.jpg" />
+    <Content Include="Content\Theme\Default\img\logo-green-haze.png" />
+    <Content Include="Content\Theme\Default\img\logo-purple-plum.png" />
+    <Content Include="Content\Theme\Default\img\logo-purple-studio.png" />
+    <Content Include="Content\Theme\Default\img\logo-red-intense.png" />
+    <Content Include="Content\Theme\Default\img\logo-red-sunglo.png" />
+    <Content Include="Content\Theme\Default\img\logo-yellow-crusta.png" />
+    <Content Include="Content\Theme\Default\img\logo-yellow-orange.png" />
+    <Content Include="Content\Theme\Default\img\logo.png" />
+    <Content Include="Content\Theme\Default\img\menu-toggler.png" />
+    <Content Include="Content\Theme\Default\img\table-head-bg.png" />
+    <Content Include="Content\Theme\Default\scripts\datatable.js" />
+    <Content Include="Content\Theme\Default\scripts\demo.js" />
+    <Content Include="Content\Theme\Default\scripts\demo.min.js" />
+    <Content Include="Content\Theme\Default\scripts\layout.js" />
+    <Content Include="Content\Theme\Default\scripts\layout.min.js" />
+    <Content Include="Content\Theme\Default\scripts\select2.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Amenity\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Nationality\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Nationality\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Nationality\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Nationality\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Nationality\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Amenity\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Amenity\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Amenity\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Amenity\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\RoomType\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\RoomType\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\RoomType\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\RoomType\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\RoomType\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CONFIGCOMP\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CONFIGCOMP\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CONFIGCOMP\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CONFIGCOMP\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CONFIGCOMP\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Customer\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Customer\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Customer\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Customer\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Customer\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Room\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Room\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Room\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Room\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Room\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LayoutPage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Theme\Default\global\img\social\Thumbs.db" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\LICENSE" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-datetimepicker\README.md" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-modal\LICENSE" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap-modal\README.md" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Theme\Default\global\plugins\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\Theme\Default\global\plugins\datatables\images\Sorting icons.psd" />
+    <Content Include="Content\Theme\Default\global\plugins\fancybox\CHANGELOG.md" />
+    <Content Include="Content\Theme\Default\global\plugins\fancybox\README.md" />
+    <Content Include="Content\Theme\Default\global\plugins\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Theme\Default\global\plugins\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Theme\Default\global\plugins\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Theme\Default\global\plugins\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Theme\Default\global\plugins\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery-validation\README.md" />
+    <Content Include="Content\Theme\Default\global\plugins\jquery.min.map" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\LICENSE.md" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\README.md" />
+    <Content Include="Content\Theme\Default\global\plugins\select2\sass\select2-bootstrap.min.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Theme\Default\global\plugins\simple-line-icons\fonts\Simple-Line-Icons.eot" />
+    <Content Include="Content\Theme\Default\global\plugins\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="Content\Theme\Default\global\plugins\simple-line-icons\fonts\Simple-Line-Icons.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\About.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\404.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CheckIn\CreateCheckin.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CheckIn\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CheckIn\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CheckIn\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CheckIn\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CheckIn\Checkout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Customer\Search.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CheckIn\ChooseRoom.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Amenity\AmenityInvoice.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\RoomType\Search.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CheckIn\ListCheckin.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\Aplication.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Aplication.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\Aplication.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Aplication.edmx</DependentUpon>
+      <LastGenOutput>Aplication.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Aplication.edmx.diagram">
+      <DependentUpon>Aplication.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Aplication.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Aplication.edmx</DependentUpon>
+      <LastGenOutput>Aplication.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CheckIn\TraPhong.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CheckIn\ListCheckout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Revervation\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Revervation\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Revervation\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Revervation\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Revervation\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Revervation\ChooseDateReservation.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53654</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:65325/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

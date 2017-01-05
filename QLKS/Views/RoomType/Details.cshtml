@@ -1,0 +1,47 @@
+﻿@model QLKS.Models.RoomType
+
+@{
+    Layout = "../Shared/_LayoutPage.cshtml";
+    ViewBag.Title = "Xem Loại Phòng";
+}
+<div class="col-md-12">
+    <div class="portlet light   ">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-pin font-red"></i>
+                <span class="caption-subject font-red sbold uppercase">Loại Phòng</span>
+            </div>
+
+        </div>
+        <div class="portlet-body">
+            <div class="form-group">
+                <div class="control-label col-md-3">
+                    @Html.DisplayNameFor(model => model.RoomTypeName)
+                </div>
+                <div class="col-md-9">
+                    @Html.DisplayFor(model => model.RoomTypeName)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="control-label col-md-3">
+                    @Html.DisplayNameFor(model => model.Price)
+                </div>
+                <div class="col-md-9">
+                    @Html.DisplayFor(model => model.Price)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="control-label col-md-3">
+                    @Html.DisplayNameFor(model => model.Depcriptions)
+                </div>
+                <div class="col-md-9">
+                    @Html.DisplayFor(model => model.Depcriptions)
+                </div>
+            </div>
+            <div class="box_button">
+                @Html.ActionLink("Sửa", "Edit", new { id = Model.RoomTypeID }) |
+                @Html.ActionLink("Trở về", "Index")
+            </div>
+        </div>
+    </div>
+</div>

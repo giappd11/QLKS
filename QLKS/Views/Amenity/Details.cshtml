@@ -1,0 +1,49 @@
+﻿@model QLKS.Models.Amenity
+
+@{
+    Layout = "../Shared/_LayoutPage.cshtml";
+    ViewBag.Title = "Details";
+}
+
+<div class="col-md-12">
+    <div class="portlet light   ">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-pin font-red"></i>
+                <span class="caption-subject font-red sbold uppercase">Phòng</span>
+            </div>
+
+        </div>
+        <div class="portlet-body">
+            <div class="form-group">
+
+                <div class="control-label col-md-3">
+                    @Html.DisplayNameFor(model => model.AmenityName)
+                </div>
+                <div class="col-md-9">
+                    @Html.DisplayFor(model => model.AmenityName)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="control-label col-md-3">
+                    @Html.DisplayNameFor(model => model.Price)
+                </div>
+                <div class="col-md-9">
+                    @Html.DisplayFor(model => model.Price)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="control-label col-md-3">
+                    @Html.DisplayNameFor(model => model.Description)
+                </div>
+                <div class="col-md-9">
+                    @Html.DisplayFor(model => model.Description)
+                </div>
+            </div>
+            <div class="box_button">
+                @Html.ActionLink("Sửa", "Edit", new { id = Model.AmenityID }) |
+                @Html.ActionLink("Trở về", "Index")
+            </div>
+        </div>
+    </div>
+</div>
